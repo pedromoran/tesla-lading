@@ -1,17 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<section class="h-screen relative">
-		<div class="absolute w-full h-full z-[-1]">
+	<main class="h-screen relative">
+		<div class="absolute w-full h-full z-10">
 			<video class="w-full h-full object-cover object-center" src="public/Homepage-Test_Drive-NA-Desktop.webm" autoplay muted loop></video>
 		</div>
-		<div class="h-full w-full flex flex-col items-center text-white text-center">
-			<h1 class="text-[40px] mt-[17vh] font-medium">Experience Tesla</h1>
-			<p class="text-sm">Schedule a Demo Drive Today</p>
-			<a href="#" class="absolute bottom-[80px] rounded border-[3px] border-white text-sm font-medium w-[264px] py-[7px]">Demo Drive</a>
-		</div>
-	</section>
+		<section class="absolute z-20 h-full w-full flex flex-col justify-between text-white text-center">
+			<header>
+				<h1 class="text-[39px] mt-[17.5vh] font-medium">Experience Tesla</h1>
+				<p class="text-sm">Schedule a Demo Drive Today</p>
+			</header>
+			<footer class="pb-[80px]">
+				<a href="#" class="rounded border-[3px] border-white text-sm inline-block font-medium w-[264px] py-[7px]">Demo Drive</a>
+			</footer>
+		</section>
+	</main>
 </Layout>
