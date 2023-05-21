@@ -60,7 +60,7 @@ const {
   const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.75,
+    threshold: 0.6,
   };
 
   const $sections = document.querySelectorAll(
@@ -70,45 +70,45 @@ const {
   const $sectionsContent = document.querySelectorAll(
     "[data-section-content]"
   ) as NodeListOf<Element>;
-    
+
   const $homePage = document.querySelector("#home-page");
   const $header = document.querySelector("#leading-header") as HTMLElement;
-  
+
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
     const windowHeight =
       window.innerHeight || document.documentElement.clientHeight;
 
     const totalHeight = rect.bottom - rect.top;
-    
+
     const outsideViewportHeight =
-    Math.max(0, rect.top < 0 ? Math.abs(rect.top) : 0) +
-    Math.max(
-      0,
+      Math.max(0, rect.top < 0 ? Math.abs(rect.top) : 0) +
+      Math.max(
+        0,
         rect.bottom - windowHeight > 0 ? rect.bottom - windowHeight : 0
-        );
-        
-        const insideViewportHeight = totalHeight - outsideViewportHeight;
-        
-        const visiblePercentage = (insideViewportHeight / totalHeight) * 100;
+      );
+
+    const insideViewportHeight = totalHeight - outsideViewportHeight;
+
+    const visiblePercentage = (insideViewportHeight / totalHeight) * 100;
 
     return visiblePercentage;
   }
 
-  const createScrollHandler = (
-    $section,
-    $sectionContent,
-    headerColor
-  ) => {
+  const calcScrollOpacity = (n) => (n - 60) / 25; // (increments the velocity of the opacity change)
+
+  const createScrollHandler = ($section, $sectionContent, headerColor) => {
     return () => {
       const topDistance = $section.getBoundingClientRect().top;
 
       // verify if scroll is working fine for each section
       // console.log($section.attributes.getNamedItem("data-section-name").value);
 
-      const $prevSection = $section.previousElementSibling as HTMLElement || null;
+      const $prevSection =
+        ($section.previousElementSibling as HTMLElement) || null;
       const prevHeaderColor =
-        $prevSection?.attributes.getNamedItem("data-header-color").value ?? headerColor;
+        $prevSection?.attributes.getNamedItem("data-header-color").value ??
+        headerColor;
 
       if (topDistance <= 30) {
         $header.style.color = headerColor;
@@ -118,9 +118,7 @@ const {
 
       const visiblePercentage = Math.round(getVisiblePercentage($section));
       $sectionContent.style.bottom = `${topDistance}px`;
-      // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
-      // (this increments the velocity of the opacity change)
-      $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
+      $sectionContent.style.opacity = calcScrollOpacity(visiblePercentage);
     };
   };
 
@@ -146,7 +144,7 @@ const {
         const visiblePercentage = Math.round(getVisiblePercentage($section));
         const topDistance = $section.getBoundingClientRect().top;
 
-        $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
+        $sectionContent.style.opacity = `${calcScrollOpacity(visiblePercentage)}`;
         $sectionContent.style.zIndex = "20";
 
         if (topDistance <= 30) {
