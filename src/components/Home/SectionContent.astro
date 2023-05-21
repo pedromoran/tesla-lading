@@ -103,8 +103,17 @@ const {
     return () => {
       const topDistance = $section.getBoundingClientRect().top;
 
+      // verify if scroll is working fine for each section
+      // console.log($section.attributes.getNamedItem("data-section-name").value);
+
+      const $prevSection = $section.previousElementSibling as HTMLElement || null;
+      const prevHeaderColor =
+        $prevSection?.attributes.getNamedItem("data-header-color").value ?? headerColor;
+
       if (topDistance <= 30) {
         $header.style.color = headerColor;
+      } else {
+        $header.style.color = prevHeaderColor;
       }
 
       const visiblePercentage = Math.round(getVisiblePercentage($section));
