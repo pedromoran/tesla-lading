@@ -1,0 +1,76 @@
+---
+interface Props {
+  homeSectionName: string;
+}
+
+const { homeSectionName } = Astro.props;
+---
+
+<section data-section-name={`section-${homeSectionName}`} class="h-screen relative snap-center">
+  <div class="absolute w-full h-full z-10">
+    <img src="public/Homepage-Model-3-Desktop-LHD.avif" alt="Tesla Model 3" class="w-full h-full object-cover">
+  </div>
+  <section data-section-content={`section-${homeSectionName}-content`} class="absolute z-20 h-full w-full flex flex-col justify-between text-center">
+    <header>
+      <h1 class="text-[39px] mt-[17.5vh] font-medium">Model 3</h1>
+      <a class="text-sm shadow-[0_1px_0_0_#171A20] cursor-pointer hover:shadow-[0_2px_0_0_#171A20] duration-300">Lease from $399/mo</a>
+    </header>
+    <footer class="grid grid-cols-[repeat(2,264px)] place-content-center gap-[24px] pb-[80px]">
+      <a href="#" class="rounded bg-[rgba(23,_26,_32,_0.8)] text-sm font-medium h-[40px] flex items-center justify-center text-white hover:bg-[#1a1b1c] duration-100">Order Now</a>
+      <a href="#" class="rounded bg-[rgba(244,_244,_244,_0.65)] text-sm font-medium h-[40px] flex items-center justify-center text-[#393c41] hover:bg-white hover:text-black duration-100">Demo Drive</a>
+    </footer>
+  </section>
+</section>
+
+<script>
+  const options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.75
+  }
+
+  const $sections = document.querySelectorAll('[data-section-name]') as NodeListOf<Element>;
+  const $sectionsContent = document.querySelectorAll('[data-section-content]') as NodeListOf<Element>;
+  const $homePage = document.querySelector('#home-page'); 
+
+  function getVisiblePercentage(element) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    const totalHeight = rect.bottom - rect.top;
+
+    const outsideViewportHeight = Math.max(0, (rect.top < 0 ? Math.abs(rect.top) : 0)) + Math.max(0, (rect.bottom - windowHeight > 0 ? rect.bottom - windowHeight : 0));
+
+    const insideViewportHeight = totalHeight - outsideViewportHeight;
+
+    const visiblePercentage = insideViewportHeight / totalHeight * 100;
+
+    return visiblePercentage;
+  }
+
+  let observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sectionName = entry.target.attributes.getNamedItem('data-section-name').value;
+        const $sectionContent = [...$sectionsContent].find((el) => {return el.attributes.getNamedItem('data-section-content').value === `${sectionName}-content`}) as HTMLElement;
+        
+        $homePage.addEventListener('scroll', () => {
+          const visiblePercentage = Math.round(getVisiblePercentage(entry.target));
+          $sectionContent.style.bottom = `${entry.target.getBoundingClientRect().top}px`
+          // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
+          // (this increments the velocity of the opacity change)
+          $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
+          console.log((visiblePercentage - 75) / 25);
+        });
+      } else {
+        $homePage.removeEventListener('scroll', () => {});
+      }
+    });
+  }, options);
+
+
+  $sections.forEach((section) => {
+    observer.observe(section);
+  });
+
+</script>

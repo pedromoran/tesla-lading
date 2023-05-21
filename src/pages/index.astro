@@ -1,12 +1,13 @@
 ---
 import HeroSection from '../components/Home/HeroSection.astro';
-import Model3Section from '../components/Home/Model3Section.astro';
+import Section from '../components/Home/Section.astro';
+import SectionContent from '../components/Home/SectionContent.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="snap-y snap-mandatory relative w-full h-screen overflow-auto">
+	<div id="home-page" class="snap-y snap-mandatory w-full h-screen overflow-auto scroll-smooth">
 		<HeroSection />
-		<Model3Section />
+		<SectionContent homeSectionName="model-3" />
 	</div>
 </Layout>
