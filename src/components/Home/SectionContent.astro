@@ -50,7 +50,7 @@ const {
 
   <section
     data-section-content={`section-${homeSectionName}-content`}
-    class="absolute z-20 h-full w-full opacity-0 flex flex-col justify-between text-center transition-opacity duration-500"
+    class="absolute z-20 h-full w-full opacity-0 flex flex-col justify-between text-center"
   >
     <slot />
   </section>
@@ -117,7 +117,6 @@ const {
       }
 
       const visiblePercentage = Math.round(getVisiblePercentage($section));
-      $sectionContent.style.transition = "none";
       $sectionContent.style.bottom = `${topDistance}px`;
       // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
       // (this increments the velocity of the opacity change)
