@@ -1,14 +1,13 @@
-<main class="h-screen relative snap-center">
-  <div class="absolute w-full h-full z-10">
-    <video class="w-full h-full object-cover object-center" src="public/Homepage-Test_Drive-NA-Desktop.webm" autoplay muted loop></video>
-  </div>
-  <section class="absolute z-20 h-full w-full flex flex-col justify-between text-white text-center">
-    <header>
-      <h1 class="text-[39px] mt-[17.5vh] font-medium">Experience Tesla</h1>
-      <p class="text-sm">Schedule a Demo Drive Today</p>
-    </header>
-    <footer class="pb-[80px]">
-      <a href="#" class="rounded border-[3px] border-white text-sm inline-block font-medium w-[264px] py-[7px] hover:bg-white hover:text-black duration-100">Demo Drive</a>
-    </footer>
-  </section>
-</main>
+---
+import SectionContent from "./SectionContent.astro";
+---
+
+<SectionContent homeSectionName="hero" video={{ src: "public/Homepage-Test_Drive-NA-Desktop.webm" }} >
+  <header class="text-white">
+    <h1 class="text-[39px] mt-[17.5vh] font-medium">Experience Tesla</h1>
+    <p class="text-sm">Schedule a Demo Drive Today</p>
+  </header>
+  <footer class="pb-[80px]">
+    <a href="#" class="rounded border-[3px] text-white border-white text-sm inline-block font-medium w-[264px] py-[7px] hover:bg-white hover:text-black duration-100">Demo Drive</a>
+  </footer>
+</SectionContent>
