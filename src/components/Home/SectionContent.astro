@@ -50,7 +50,7 @@ const {
 
   <section
     data-section-content={`section-${homeSectionName}-content`}
-    class="absolute z-20 h-full w-full flex flex-col justify-between text-center"
+    class="absolute z-20 h-full w-full opacity-0 flex flex-col justify-between text-center transition-opacity duration-500"
   >
     <slot />
   </section>
@@ -117,6 +117,7 @@ const {
       }
 
       const visiblePercentage = Math.round(getVisiblePercentage($section));
+      $sectionContent.style.transition = "none";
       $sectionContent.style.bottom = `${topDistance}px`;
       // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
       // (this increments the velocity of the opacity change)
@@ -143,8 +144,12 @@ const {
 
       if (isIntersecting) {
         //Default effects
-        $sectionContent.classList.remove("hidden");
+        const visiblePercentage = Math.round(getVisiblePercentage($section));
         const topDistance = $section.getBoundingClientRect().top;
+
+        $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
+        $sectionContent.style.zIndex = "20";
+
         if (topDistance <= 30) {
           $header.style.color = headerColor;
         }
@@ -161,6 +166,7 @@ const {
         $homePage.addEventListener("scroll", scrollHandlers[sectionName]);
       } else {
         $homePage.removeEventListener("scroll", scrollHandlers[sectionName]);
+        $sectionContent.style.zIndex = "-1";
       }
     });
   }, options);
