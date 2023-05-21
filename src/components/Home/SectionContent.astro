@@ -1,17 +1,22 @@
 ---
+import LayoutHeader from "../LayoutHeader.astro";
+
 interface Props {
   homeSectionName: string;
+  headerColor?: string;
   image?: { src: string; alt: string };
   video?: { src: string };
 }
 
-const { homeSectionName, image, video } = Astro.props;
+const { homeSectionName, image, video, headerColor = "red" } = Astro.props;
 ---
 
 <section
   data-section-name={`section-${homeSectionName}`}
+  data-header-color={headerColor}
   class="h-screen relative snap-center"
 >
+  <LayoutHeader />
   {
     video && (
       <div class="absolute w-full h-full z-10">
@@ -56,9 +61,11 @@ const { homeSectionName, image, video } = Astro.props;
   const $sections = document.querySelectorAll(
     "[data-section-name]"
   ) as NodeListOf<Element>;
+
   const $sectionsContent = document.querySelectorAll(
     "[data-section-content]"
   ) as NodeListOf<Element>;
+
   const $homePage = document.querySelector("#home-page");
 
   function getVisiblePercentage(element) {
@@ -93,19 +100,32 @@ const { homeSectionName, image, video } = Astro.props;
         );
       }) as HTMLElement;
 
+      const $header = document.querySelector("#leading-header") as HTMLElement;
+      const headerColor =
+        entry.target.attributes.getNamedItem("data-header-color").value;
+
       if (entry.isIntersecting) {
         $sectionContent.classList.remove("hidden");
+
+        const topDistance = entry.target.getBoundingClientRect().top;
+        if (topDistance <= 30) {
+          $header.style.color = headerColor;
+        }
+
         $homePage.addEventListener("scroll", () => {
+          const topDistance = entry.target.getBoundingClientRect().top;
+
+          if (topDistance <= 30) {
+            $header.style.color = headerColor;
+          }
+
           const visiblePercentage = Math.round(
             getVisiblePercentage(entry.target)
           );
-          $sectionContent.style.bottom = `${
-            entry.target.getBoundingClientRect().top
-          }px`;
+          $sectionContent.style.bottom = `${topDistance}px`;
           // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
           // (this increments the velocity of the opacity change)
           $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
-          console.log((visiblePercentage - 75) / 25);
         });
       } else {
         $sectionContent.classList.add("hidden");
