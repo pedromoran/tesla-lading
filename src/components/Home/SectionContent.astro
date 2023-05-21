@@ -104,15 +104,9 @@ const { homeSectionName, image, video, headerColor = "transparent" } = Astro.pro
       const headerColor =
         entry.target.attributes.getNamedItem("data-header-color").value;
 
-      if (entry.isIntersecting) {
-        $sectionContent.classList.remove("hidden");
 
-        const topDistance = entry.target.getBoundingClientRect().top;
-        if (topDistance <= 30) {
-          $header.style.color = headerColor;
-        }
-
-        $homePage.addEventListener("scroll", () => {
+        const handleScroll = () => {
+          console.log("scrolling");
           const topDistance = entry.target.getBoundingClientRect().top;
 
           if (topDistance <= 30) {
@@ -125,11 +119,23 @@ const { homeSectionName, image, video, headerColor = "transparent" } = Astro.pro
           $sectionContent.style.bottom = `${topDistance}px`;
           // 75% of visiblePercentage is equal to 0 opacity and 100% is equal to 1 opacity
           // (this increments the velocity of the opacity change)
+          // console.log(`${(visiblePercentage - 75) / 25}`);
           $sectionContent.style.opacity = `${(visiblePercentage - 75) / 25}`;
-        });
+        };
+
+      if (entry.isIntersecting) {
+
+        //Default effects
+        $sectionContent.classList.remove("hidden");
+        const topDistance = entry.target.getBoundingClientRect().top;
+        if (topDistance <= 30) {
+          $header.style.color = headerColor;
+        }
+
+        $homePage.addEventListener("scroll", handleScroll);
       } else {
         $sectionContent.classList.add("hidden");
-        // $homePage.removeEventListener("scroll", () => {});
+        $homePage.removeEventListener("scroll", handleScroll);
       }
     });
   }, options);
