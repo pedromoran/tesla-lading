@@ -1,12 +1,133 @@
 ---
-import AccessoriesSection from '../components/Home/AccessoriesSection.astro';
-import HeroSection from '../components/Home/HeroSection.astro';
-import Model3Section from '../components/Home/Model3Section.astro';
-import Layout from '../layouts/Layout.astro';
+import AccessoriesSection from "../components/Home/AccessoriesSection.astro";
+import HeroSection from "../components/Home/HeroSection.astro";
+import Model3Section from "../components/Home/Model3Section.astro";
+import LayoutHeader from "../components/LayoutHeader.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<div id="home-page" class="snap-y snap-mandatory w-full h-screen overflow-auto scroll-smooth">
-		<Model3Section />
-	</div>
+  <main class="h-screen relative">
+    <LayoutHeader color="black"/>
+
+    <div class="absolute w-full h-full z-10">
+			<!-- change pic -->
+      <img
+        src={"/Model-S-homepage-desktop.avif"}
+        alt={"Model-S"}
+        class="w-full h-full object-cover"
+      />
+    </div>
+
+    <section
+      class="absolute z-20 h-full w-full opacity-0 flex flex-col justify-between text-center"
+    >
+      <header>
+        <h1 class="text-[39px] mt-[17.5vh] font-medium">Model 3</h1>
+        <a
+          class="text-sm shadow-[0_1px_0_0_#171A20] cursor-pointer hover:shadow-[0_2px_0_0_#171A20] duration-300"
+          >Lease from $399/mo</a
+        >
+      </header>
+      <footer
+        class="grid grid-cols-[repeat(2,264px)] place-content-center gap-[24px] pb-[80px]"
+      >
+        <a
+          href="#"
+          class="rounded bg-[rgba(23,_26,_32,_0.8)] text-sm font-medium h-[40px] flex items-center justify-center text-black hover:bg-[#171A20] transition-colors duration-300"
+          >Order Now</a
+        >
+        <a
+          href="#"
+          class="rounded bg-[rgba(244,_244,_244,_0.65)] text-sm font-medium h-[40px] flex items-center justify-center text-[#393c41] hover:bg-white hover:text-black transition-colors duration-300"
+          >Demo Drive</a
+        >
+      </footer>
+    </section>
+  </main>
+  <section class="w-[95%] mx-auto max-w-[1344px]">
+    <div class="rounded-[20px] overflow-hidden relative">
+      <picture
+        class="tcl-image__picture lozad"
+        data-alt="San Francisco to Los Angeles"
+        data-class="tds-asset-fallback tcl-asset tcl-image__asset"
+        data-iesrc="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+        data-loaded="true"
+      >
+        <source
+          srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+          media="(max-width: 599px) and (orientation: portrait), (max-width: 899px) and (orientation: landscape)"
+        />
+        <source
+          srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+          media="(min-width: 900px) and (orientation: landscape)"
+        />
+        <source
+          srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+          media="(min-width: 600px) and (orientation:portrait)"
+        />
+        <noscript>
+          <img
+            src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+            srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+            alt="San Francisco to Los Angeles"
+          />
+        </noscript>
+        <img
+          alt="San Francisco to Los Angeles"
+          class="tds-asset-fallback tcl-asset tcl-image__asset"
+        /></picture
+      >
+
+      <svg
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          height: "100%",
+          width: "100%",
+          // transform: 'translateY(-50%) scale(var(--tcl-asset-scale-by))',
+        }}
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        x="0px"
+        y="0px"
+        viewBox="0 0 1225 562"
+        class="tcl-carousel-v2__range-path"
+        preserveAspectRatio="xMidYMid slice"
+        xml:space="preserve"
+      >
+        <path
+          d="M254 78.5L256 83V87.5V93L260 97.5L264 100.5L266 103V107L269 109.5L275 113.5L281.5 117.5L287.5 120L292.5 121L297.5 122.5L302.5 124.5L307.5 127.5L311.5 131.5L316 134.5L319.5 138.5L322.5 144.5L332.5 152.5L341.5 156.5H347L355.5 148H363.5L371 140L376 144.5L381.5 151.5L384.5 158L388 164.5L393.5 172L399 179L403.5 187L407 194.5L412.5 200L419.5 209L425.5 216L428 223L433.5 228L440.5 233.5L444.5 241V244.5L448.5 248V250.5L450 252.5L453 257L459.5 261.5L464.5 266L470.5 271L475 275.5L481.5 278.5L483.5 281L486.5 289L488 296L488.5 300L490 301.5L491.5 303.5V309L492.5 311.5L495.5 313L497.5 315L501 317L506.5 319.5L508 323L511 324.5L512.5 327.5L515 330.5L520 333L523 335.5L526.5 338.5L531.5 342.5L535.5 346.5L539.5 351L545 355L547 359L551 362V365.5L552.5 370L554 375L557.5 379L558.5 381.5V385.5L561.5 388.5L563 392.5L565 394.5L566.5 397L569 402L571.5 407L574.5 412L577 417L580 422L582.5 425.5L584 427.5L587.5 429.5V432L588.5 434.5L590.5 437L593.5 439.5L595.5 443L597.5 446.5L601.5 448.5L604.5 451L607.5 452.5L611 455.5L612 458.5L612.5 461.5L617 467"
+          fill="none"
+          stroke="#000000"
+          stroke-width="3"
+          style="stroke-dasharray: 587.738, 587.738; stroke-dashoffset: 0;"
+        ></path>
+
+        <g class="tooltip" transform="translate(617,467)">
+          <circle fill="#231F20" cx="0" cy="0.8" r="4.4"></circle>
+          <g>
+            <rect x="-38.2" y="5.5" fill="#EC1C24" width="76.3" height="22.1"
+            ></rect>
+            <rect
+              x="-4.4"
+              y="1.7"
+              transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.3565 1.8045)"
+              fill="#EC1C24"
+              width="8.9"
+              height="8.9"></rect>
+          </g>
+          <text
+            text-anchor="middle"
+            transform="matrix(1 0 0 1 0 21.2519)"
+            fill="#ffffff"
+            font-family="Gotham SSm A"
+            font-size="13px"
+            font-weight="700">383 Miles</text
+          >
+        </g>
+      </svg>
+    </div>
+  </section>
 </Layout>
