@@ -1,0 +1,42 @@
+---
+import RoadLineSVG from "./RoadLineSVG.astro";
+
+---
+
+<section class="w-[95%] mx-auto max-w-[1344px]">
+  <div class="rounded-[20px] overflow-hidden relative">
+    <picture
+      class="tcl-image__picture lozad"
+      data-alt="San Francisco to Los Angeles"
+      data-class="tds-asset-fallback tcl-asset tcl-image__asset"
+      data-iesrc="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+      data-loaded="true"
+    >
+      <source
+        srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+        media="(max-width: 599px) and (orientation: portrait), (max-width: 899px) and (orientation: landscape)"
+      />
+      <source
+        srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+        media="(min-width: 900px) and (orientation: landscape)"
+      />
+      <source
+        srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+        media="(min-width: 600px) and (orientation:portrait)"
+      />
+      <noscript>
+        <img
+          src="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+          srcset="https://digitalassets.tesla.com/tesla-contents/image/upload/h_1124,w_2450,c_fit,f_auto,q_auto:best/SF-LA_Range-Map"
+          alt="San Francisco to Los Angeles"
+        />
+      </noscript>
+      <img
+        alt="San Francisco to Los Angeles"
+        class="tds-asset-fallback tcl-asset tcl-image__asset"
+      /></picture
+    >
+
+      <RoadLineSVG />
+  </div>
+</section>
