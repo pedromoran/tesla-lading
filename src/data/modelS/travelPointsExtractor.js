@@ -4,6 +4,7 @@
 
 let gElements = document.querySelectorAll("g");
 let pathElements = document.querySelectorAll("path");
+let textElements = document.querySelectorAll("g text");
 
 let data = {};
 
@@ -41,12 +42,36 @@ let gObserver = new MutationObserver((mutations) => {
   });
 });
 
-let config = { attributes: true, childList: false, subtree: false };
+let textObserver = new MutationObserver((mutations) => {
+  mutations.forEach(({ target, type }) => {
+    if (type === "childList") {
+      let newValue = target.firstChild.nodeValue;
+      const indexOfEl = [...textElements].indexOf(target);
+
+      if (newValue !== "null") {
+        if (data[`text-${indexOfEl}`]) {
+          data[`text-${indexOfEl}`] = [...data[`text-${indexOfEl}`], newValue];
+        } else {
+          data[`text-${indexOfEl}`] = [newValue];
+        }
+      }
+
+      console.log(data);
+    }
+  });
+});
+
+let configAttributes = { attributes: true, childList: false, subtree: false };
+let configTextNode = { childList: true, subtree: true };
 
 pathElements.forEach((path) => {
   pathObserver.observe(path, config);
 });
 
-gElements.forEach((path) => {
-  gObserver.observe(path, config);
+gElements.forEach((g) => {
+  gObserver.observe(g, config);
+});
+
+textElements.forEach((text) => {
+  textObserver.observe(text, configTextNode);
 });

@@ -51,7 +51,7 @@ import { travelPoints } from "../../data/modelS/travelPoints";
       fill="#ffffff"
       font-family="Gotham SSm A"
       font-size="13px"
-      font-weight="700">383 Miles</text
+      font-weight="700">0 Miles</text
     >
   </g>
 </svg>
@@ -59,19 +59,36 @@ import { travelPoints } from "../../data/modelS/travelPoints";
 <script define:vars={{ travelPoints }}>
   const $path = document.querySelector("#svg-path-road-line");
   const $g = document.querySelector("#svg-g-road-line-tooltip");
+  const $text = document.querySelector("#svg-g-road-line-tooltip text");
 
   const pathStyles = travelPoints[0].roadLineStyles.path;
+  const pathVelocity = travelPoints[0].roadLineVelocities.path;
+
   const gStyles = travelPoints[0].roadLineStyles.g;
+  const gVelocity = travelPoints[0].roadLineVelocities.g;
+
+  const textChanges = travelPoints[0].roadLineStyles.text;
+  const textVelocity = travelPoints[0].roadLineVelocities.text;
 
   pathStyles.forEach((point, i) => {
     setTimeout(() => {
       $path.setAttribute("style", `${point}`);
-    }, i * 20);
+    }, i * pathVelocity);
   });
 
   gStyles.forEach((point, i) => {
     setTimeout(() => {
       $g.setAttribute("transform", `${point}`);
-    }, i * 21.5);
+    }, i * gVelocity);
+  });
+
+  textChanges.forEach((point, i) => {
+    setTimeout(() => {
+      $text.textContent = point;
+      //TODO: improve this creating a dinamic transition depending on the position
+      //0% to 25% slow to fast
+      //25% to 75% fast
+      //75% to 100% fast to slow
+    }, i * textVelocity);
   });
 </script>
