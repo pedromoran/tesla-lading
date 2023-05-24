@@ -16,7 +16,7 @@ const { color } = Astro.props;
     </a>
   </div>
 
-  <nav>
+  <nav class="hidden xl:block">
     <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded">
       <li><a href="models">Model S</a></li>
       <li><a href="#">Model 3</a></li>
@@ -28,13 +28,15 @@ const { color } = Astro.props;
     </ul>
   </nav>
 
-  <nav class="flex justify-end flex-grow basis-0">
+  <nav class="hidden xl:flex justify-end flex-grow basis-0">
     <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded">
       <li><a href="#">Shop</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Menu</a></li>
     </ul>
   </nav>
+
+  <button class="inline-block bg-black/[.06] backdrop-blur-lg xl:hidden px-[16px] py-[6px] rounded hover:bg-black/[.10] transition-colors duration-300">Menu</button>
 
   <div id="menu-backdrop" class=`
     absolute -z-[1] bg-black/[.06] backdrop-blur-lg rounded

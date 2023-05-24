@@ -24,7 +24,7 @@ const {
   <LayoutHeader />
   {
     video && (
-      <div class="absolute w-full h-full z-10">
+      <div class="w-full h-screen z-10 relative">
         <video
           class="w-full h-full object-cover object-center"
           src={video.src}
@@ -38,7 +38,7 @@ const {
 
   {
     image && (
-      <div class="absolute w-full h-full z-10">
+      <div class="bg-white w-full h-screen z-10">
         <img
           src={image?.src}
           alt={image?.alt}
@@ -50,7 +50,7 @@ const {
 
   <section
     data-section-content={`section-${homeSectionName}-content`}
-    class="absolute z-20 h-full w-full opacity-0 flex flex-col justify-between text-center"
+    class="fixed top-0 z-20 h-screen w-full opacity-0 flex flex-col justify-between text-center"
   >
     <slot />
   </section>
@@ -117,7 +117,6 @@ const {
       }
 
       const visiblePercentage = Math.round(getVisiblePercentage($section));
-      $sectionContent.style.bottom = `${topDistance}px`;
       $sectionContent.style.opacity = calcScrollOpacity(visiblePercentage);
     };
   };
@@ -160,10 +159,11 @@ const {
           );
         }
 
-        $homePage.addEventListener("scroll", scrollHandlers[sectionName]);
+        document.addEventListener("scroll", scrollHandlers[sectionName]);
       } else {
-        $homePage.removeEventListener("scroll", scrollHandlers[sectionName]);
-        $sectionContent.style.zIndex = "-1";
+        document.removeEventListener("scroll", scrollHandlers[sectionName]);
+        $sectionContent.style.opacity = `0`;
+        $sectionContent.style.zIndex = "-999";
       }
     });
   }, options);
