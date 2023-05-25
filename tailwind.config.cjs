@@ -19,7 +19,7 @@ module.exports = {
 					"@apply text-[24px] sm:text-[28px]": {},
 				},
         ".container": {
-					"@apply w-[90%] mx-auto": {},
+					"@apply w-[87%] mx-auto": {},
 				},
       });
     },
