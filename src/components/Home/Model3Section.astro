@@ -2,13 +2,13 @@
 import SectionContent from "./SectionContent.astro";
 ---
 
-<SectionContent headerColor="black" homeSectionName="model-3" image={{ src: "/Homepage-Model-3-Desktop-LHD.avif", alt: "Tesla Model 3" }}>
+<SectionContent headerColor="black" homeSectionName="model-3" image={{ src: "home/Homepage-Model-3-Desktop-LHD.avif", alt: "Tesla Model 3" }}>
   <header>
-    <h1 class="text-[39px] mt-[17.5vh] font-medium">Model 3</h1>
+    <h2 class="text-[36px] sm:text-[40px] mt-[17.5vh] font-medium">Model 3</h2>
     <a class="text-sm shadow-[0_1px_0_0_#171A20] cursor-pointer hover:shadow-[0_2px_0_0_#171A20] duration-300">Lease from $399/mo</a>
   </header>
-  <footer class="w-[90%] space-y-[14px] sm:space-y-[0px] sm:flex sm:flex-row flex-wrap mx-auto place-content-center gap-[24px] pb-[50px] sm:pb-[80px]">
-    <a href="#" class="rounded w-full sm:w-[264px] bg-[rgba(23,_26,_32,_0.8)] text-sm font-medium h-[40px] flex items-center justify-center text-white hover:bg-[#171A20] transition-colors duration-300">Order Now</a>
-    <a href="#" class="rounded w-full sm:w-[264px] bg-[rgba(244,_244,_244,_0.65)] text-sm font-medium h-[40px] flex items-center justify-center text-[#393c41] hover:bg-white hover:text-black transition-colors duration-300">Demo Drive</a>
+  <footer class="container space-y-[14px] sm:space-y-[0px] sm:flex sm:flex-row flex-wrap mx-auto place-content-center gap-[24px]">
+    <a href="#" class="w-full sm:w-[264px] rounded bg-[rgba(23,_26,_32,_0.8)] text-sm font-medium h-[40px] flex items-center justify-center text-white hover:bg-[#171A20] transition-colors duration-300">Order Now</a>
+    <a href="#" class="w-full sm:w-[264px] rounded bg-[rgba(244,_244,_244,_0.65)] text-sm font-medium h-[40px] flex items-center justify-center text-[#393c41] hover:bg-white hover:text-black transition-colors duration-300">Demo Drive</a>
   </footer>
 </SectionContent>

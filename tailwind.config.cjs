@@ -8,5 +8,20 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animated")],
+  plugins: [
+    require("tailwindcss-animated"),
+    function ({ addComponents,  }) {
+      addComponents({
+        "h1": {
+					"@apply text-[36px] sm:text-[40px]": {},
+				},
+        "h2": {
+					"@apply text-[24px] sm:text-[28px]": {},
+				},
+        ".container": {
+					"@apply w-[90%] mx-auto": {},
+				},
+      });
+    },
+  ],
 };
