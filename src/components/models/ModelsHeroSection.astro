@@ -1,30 +1,30 @@
 ---
 import LayoutHeader from "../LayoutHeader.astro";
 import GridItem from "../common/GridItem.astro";
-import { isDevEnv } from '../../helpers/isDevEnv';
+import { isDevEnv } from "../../helpers/isDevEnv";
 ---
 
 <main class="h-screen relative">
   <LayoutHeader color="black" />
 
-  <div class="absolute w-full h-full z-10">
+  <div class="absolute w-full h-full z-10 bg-red-900">
     <picture>
       <source
-        srcset={isDevEnv("models/")+"Model-S-Main-Hero-Mobile-LHD.avif"}
+        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
         media="(max-width: 639px)"
       />
       <source
-        srcset={isDevEnv("models/")+"Model-S-Main-Hero-Desktop-LHD.avif"}
+        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
         media="(min-width: 640px)"
       />
       <source
-        srcset={isDevEnv("models/")+"Model-S-Main-Hero-Mobile-LHD.avif"}
+        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
         media="(min-width: 640px) and (orientation:portrait)"
       />
       <img
         class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
-        src={isDevEnv("models/")+"Model-S-Main-Hero-Desktop-LHD.avif"}
-        srcset={isDevEnv("models/")+"Model-S-Main-Hero-Desktop-LHD.avif"}
+        src={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
+        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
         alt="Home outfitted with Tesla Solar Roof"
       />
     </picture>
@@ -41,37 +41,32 @@ import { isDevEnv } from '../../helpers/isDevEnv';
       class="container [&>section>h3>span]:text-[20px] [&>section>p]:text-sm w-[328px] sm:w-[760px] text-white grid grid-cols-3 sm:grid-cols-4 mx-auto place-content-center gap-[24px_6px]"
     >
       <!-- TODO: Refactor the rest -->
-      <GridItem delay={1} message="Range (EPA est.)" titlePrimary="396" titleSecondary="mi" />
+      <GridItem
+        classes="animate-delay-[1s]"
+        message="Range (EPA est.)"
+        titlePrimary="396"
+        titleSecondary="mi"
+      />
 
       <section class="animate-delay-[1.15s]">
         <h3>1.99 <span>s</span></h3>
         <p>0-60 mph*</p>
       </section>
 
-      <section class="animate-delay-[1.30s]" >
+      <section class="animate-delay-[1.30s]">
         <h3>200 <span>mph</span></h3>
         <p>Top Speed†</p>
-      </section> 
+      </section>
 
-      <section
-        class="hidden sm:block animate-delay-[1.45s]"
-      >
+      <section class="hidden sm:block animate-delay-[1.45s]">
         <h3>1,020 <span>hp</span></h3>
         <p>Peak Power</p>
       </section>
       <section
-        class="w-full space-y-[14px] sm:space-y-0 col-span-full place-self-end sm:flex-center sm:space-x-[20px]"
+        class="w-full animate-delay-[1.60s] space-y-[14px] sm:space-y-0 col-span-full place-self-end sm:flex-center sm:space-x-[20px]"
       >
-        <a
-          href="#"
-          class="btn-light animate-delay-[1.60s]"
-          >Order Now</a
-        >
-        <a
-          href="#"
-          class="btn-light--outline animate-delay-[1.75s]"
-          >Demo Drive</a
-        >
+        <a href="#" class="btn-light">Order Now</a>
+        <a href="#" class="btn-light--outline">Demo Drive</a>
       </section>
     </footer>
   </section>

@@ -4,13 +4,12 @@ interface Props {
   titlePrimary: string;
   titleSecondary?: string;
   message: string;
-  delay?: number;
 }
 
-const { classes = "", message, titlePrimary, titleSecondary, delay } = Astro.props;
+const { classes = "", message, titlePrimary, titleSecondary } = Astro.props;
 ---
 
-<section class={`${delay ? `animate-delay-[${delay}s]`: ""} ${classes}`}>
+<section class={classes}>
   <h3 class="mb-[5px]">
     {titlePrimary}
     {titleSecondary && <span class="text-[20px]">{titleSecondary}</span>}
