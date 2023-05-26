@@ -16,13 +16,9 @@ const {
 
 <section
   data-section-content={`section-${homeSectionName}-content`}
-  class="h-screen sticky z-10 top-0 left-0 mt-[-100vh]"
+  class="w-full h-screen sticky z-10 top-0 left-0 opacity-0 flex flex-col justify-between text-center mt-[-100vh] pb-[50px] sm:pb-[80px]"
 >
-  <div
-    class="h-full w-full pb-[50px] sm:pb-[80px] opacity-1 flex flex-col justify-between text-center"
-  >
     <slot />
-  </div>
 </section>
 
 {
@@ -79,16 +75,14 @@ const {
     ...document.querySelectorAll("[data-section-name]"),
   ] as HTMLElement[];
 
-  const $sectionsContent = [
+  const $sectionsContents = [
     ...document.querySelectorAll("[data-section-content]"),
   ] as HTMLElement[];
 
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
-  console.log($sections[0].getBoundingClientRect());
-
-  $sectionsContent.forEach((el) => {
+  $sectionsContents.forEach((el) => {
     el.style.marginTop = `-${window.innerHeight}px`;
   });
 
@@ -147,7 +141,7 @@ const {
       const sectionName =
         $section.attributes.getNamedItem("data-section-name").value;
 
-      const $sectionContent = [...$sectionsContent].find((el) => {
+      const $sectionContent = [...$sectionsContents].find((el) => {
         return (
           el.attributes.getNamedItem("data-section-content").value ===
           `${sectionName}-content`
