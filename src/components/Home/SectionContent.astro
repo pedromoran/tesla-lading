@@ -82,10 +82,15 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
+  $sectionsContents.forEach((el) => {
+    el.style.height = `${$homePageBox.clientHeight}px`;
+    el.style.marginTop = `-${$homePageBox.clientHeight}px`;
+  });
+
   window.addEventListener("resize", () => {
     $sectionsContents.forEach((el) => {
-      el.style.height = `-${window.innerHeight}px`;
-      el.style.marginTop = `-${window.innerHeight}px`;
+      el.style.height = `${$homePageBox.clientHeight}px`;
+      el.style.marginTop = `-${$homePageBox.clientHeight}px`;
     });
   });
 
