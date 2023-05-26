@@ -119,6 +119,7 @@ const {
   const createScrollHandler = ($section, $sectionContent, headerColor) => {
     return () => {
       const topDistance = $section.getBoundingClientRect().top;
+      ($section as HTMLElement).style.height = `${window.innerHeight}px`;
 
       // verify if scroll is working fine for each section
       // console.log($section.attributes.getNamedItem("data-section-name").value);
@@ -158,7 +159,6 @@ const {
         $section.attributes.getNamedItem("data-header-color").value;
 
       if (isIntersecting) {
-        ($section as HTMLElement).style.height = `${window.innerHeight}px`;
         //Default effects
         const visiblePercentage = Math.round(getVisiblePercentage($section));
         const topDistance = $section.getBoundingClientRect().top;
