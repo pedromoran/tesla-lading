@@ -82,13 +82,13 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
-  $sectionsContents.forEach((el) => {
-    const extraSpace =
-      el.getBoundingClientRect().height - $homePageBox.clientHeight;
-    const newHeight = el.getBoundingClientRect().height - extraSpace;
+  // $sectionsContents.forEach((el) => {
+  //   const extraSpace =
+  //     el.getBoundingClientRect().height - $homePageBox.clientHeight;
+  //   const newHeight = el.getBoundingClientRect().height - extraSpace;
 
-    el.style.height = `${newHeight}px`;
-  });
+  //   el.style.height = `${newHeight}px`;
+  // });
   const resizeSectionContent = () => {
     const responsiveSpace =
       $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
