@@ -8,7 +8,7 @@ interface Props {
 const { color } = Astro.props;
 ---
 
-<header id="leading-header" class="w-full flex items-center px-5 py-[12px] fixed z-50 text-transparent transition-colors duration-500 font-medium animate-fade animate-duration-500 animate-delay-[.25s]" style={{ color }}>
+<header id="lading-header" class="w-full flex items-center px-5 py-[12px] fixed z-50 text-transparent transition-colors duration-500 font-medium animate-fade animate-duration-500 animate-delay-[.25s]" style={{ color }}>
 
   <div class="flex-grow basis-0">
     <a class="block w-[7.5rem] sm:ml-6" href="/">
@@ -49,7 +49,7 @@ const { color } = Astro.props;
 </header>
 
 <script>
-  const listItems = document.querySelectorAll('#leading-header li');
+  const listItems = document.querySelectorAll('#lading-header li');
   const menuBackdrop = document.querySelector('#menu-backdrop') as HTMLElement;
 
   listItems.forEach((item, index) => {

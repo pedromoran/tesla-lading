@@ -2,11 +2,22 @@
 import AccessoriesSection from '../components/Home/AccessoriesSection.astro';
 import HomeHeroSection from '../components/Home/HomeHeroSection.astro';
 import Model3Section from '../components/Home/Model3Section.astro';
+import LayoutHeader from '../components/LayoutHeader.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Tesla">
-	<HomeHeroSection />
-	<Model3Section />
-	<AccessoriesSection />
+	<div id="home-page-box" class="h-screen snap-y bg-[#780808db] snap-mandatory overflow-y-scroll">
+		<HomeHeroSection />
+		<Model3Section />
+		<AccessoriesSection />
+	</div>
 </Layout>
+
+<script>
+  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+    (el) => {
+      el.style.height = `${window.innerHeight}px`;
+    }
+  );
+</script>

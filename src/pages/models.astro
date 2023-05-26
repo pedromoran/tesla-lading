@@ -7,3 +7,11 @@ import Layout from "../layouts/Layout.astro";
   <ModelsHeroSection />
   <!-- <FreedomTravelSection /> -->
 </Layout>
+
+<script>
+  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+    (el) => {
+      el.style.height = `${window.innerHeight}px`;
+    }
+  );
+</script>

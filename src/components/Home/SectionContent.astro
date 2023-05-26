@@ -1,6 +1,4 @@
 ---
-import LayoutHeader from "../LayoutHeader.astro";
-
 interface Props {
   homeSectionName: string;
   headerColor?: string;
@@ -16,60 +14,57 @@ const {
 } = Astro.props;
 ---
 
-<section
-  data-section-name={`section-${homeSectionName}`}
-  data-header-color={headerColor}
-  class="relative snap-center"
->
-  <LayoutHeader />
-  {
-    video && (
-      <div class="w-full h-full z-10 relative">
-        <video
-          class="w-full h-full object-cover object-center"
-          src={video.src}
-          autoplay
-          muted
-          loop
-        />
-      </div>
-    )
-  }
-
-  {
-    image && (
-      <div class="bg-white w-full h-full z-10">
-        <picture>
-          <source
-            srcset={image.srcMobile}
-            media="(max-width: 639px)"
-          />
-          <source
-            srcset={image.srcDesktop}
-            media="(min-width: 640px)"
-          />
-          <source
-            srcset={image.srcMobile}
-            media="(min-width: 640px) and (orientation:portrait)"
-          />
-          <img
-            class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
-            src={image.srcDesktop}
-            srcset={image.srcDesktop}
-            alt="Home outfitted with Tesla Solar Roof"
-          />
-        </picture>
-      </div>
-    )
-  }
-
-  <section
+<section class="h-screen sticky z-10 top-0 left-0 mt-[-100vh]">
+  <div
     data-section-content={`section-${homeSectionName}-content`}
-    class="fixed top-0 z-20 h-full w-full pb-[50px] sm:pb-[80px] opacity-0 flex flex-col justify-between text-center"
+    class="h-full w-full pb-[50px] sm:pb-[80px] opacity-1 flex flex-col justify-between text-center"
   >
     <slot />
-  </section>
+  </div>
 </section>
+
+{
+  video && (
+    <section
+      data-section-name={`section-${homeSectionName}`}
+      data-header-color={headerColor}
+      class="w-full h-screen snap-center"
+    >
+      <video
+        class="w-full h-full object-cover object-center"
+        src={video.src}
+        autoplay
+        muted
+        loop
+      />
+    </section>
+  )
+}
+
+{
+  image && (
+    <section
+      data-section-name={`section-${homeSectionName}`}
+      data-header-color={headerColor}
+      class="w-full h-screen snap-center"
+    >
+      <picture>
+        <source srcset={image.srcMobile} media="(max-width: 639px)" />
+        <source srcset={image.srcDesktop} media="(min-width: 640px)" />
+        <source
+          srcset={image.srcMobile}
+          media="(min-width: 640px) and (orientation:portrait)"
+        />
+        <img
+          class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
+          src={image.srcDesktop}
+          srcset={image.srcDesktop}
+          alt="Home outfitted with Tesla Solar Roof"
+        />
+      </picture>
+    </section>
+  )
+}
 
 <script>
   const options = {
@@ -78,20 +73,16 @@ const {
     threshold: 0.6,
   };
 
-  const $sections = document.querySelectorAll(
-    "[data-section-name]"
-  ) as NodeListOf<HTMLElement>;
+  const $sections = [
+    ...document.querySelectorAll("[data-section-name]"),
+  ] as HTMLElement[];
 
-  const $sectionsContent = document.querySelectorAll(
-    "[data-section-content]"
-  ) as NodeListOf<HTMLElement>;
+  const $sectionsContent = [
+    ...document.querySelectorAll("[data-section-content]"),
+  ] as HTMLElement[];
 
-  const $homePage = document.querySelector("#home-page");
-  const $header = document.querySelector("#leading-header") as HTMLElement;
-  
-  [...$sections].forEach(s => {
-    s.style.height = `${window.innerHeight}px`;
-  })
+  const $homePageBox = document.querySelector("#home-page-box");
+  const $header = document.querySelector("#lading-header") as HTMLElement;
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
@@ -119,14 +110,13 @@ const {
   const createScrollHandler = ($section, $sectionContent, headerColor) => {
     return () => {
       const topDistance = $section.getBoundingClientRect().top;
-
       // verify if scroll is working fine for each section
       // console.log($section.attributes.getNamedItem("data-section-name").value);
 
-      const $prevSection =
-        ($section.previousElementSibling as HTMLElement) || null;
+      const sectionIndex = $sections.indexOf($section);
+      const $prevSection = ($sections[sectionIndex - 1] as HTMLElement) || null;
       const prevHeaderColor =
-        $prevSection?.attributes.getNamedItem("data-header-color").value ??
+        $prevSection?.attributes.getNamedItem("data-header-color")?.value ??
         headerColor;
 
       if (topDistance <= 30) {
@@ -171,7 +161,6 @@ const {
           $header.style.color = headerColor;
         }
 
-        // Only create the function if it doesn't already exist
         if (!scrollHandlers[sectionName]) {
           scrollHandlers[sectionName] = createScrollHandler(
             $section,
@@ -180,9 +169,9 @@ const {
           );
         }
 
-        document.addEventListener("scroll", scrollHandlers[sectionName]);
+        $homePageBox.addEventListener("scroll", scrollHandlers[sectionName]);
       } else {
-        document.removeEventListener("scroll", scrollHandlers[sectionName]);
+        $homePageBox.removeEventListener("scroll", scrollHandlers[sectionName]);
         $sectionContent.style.opacity = `0`;
         $sectionContent.style.zIndex = "-999";
       }
