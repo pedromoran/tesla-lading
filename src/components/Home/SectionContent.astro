@@ -129,9 +129,9 @@ const {
         $prevSection?.attributes.getNamedItem("data-header-color")?.value ??
         headerColor;
 
-      if (topDistance <= 30) {
+      if (topDistance <= 30 && $header) {
         $header.style.color = headerColor;
-      } else {
+      } else if($header) {
         $header.style.color = prevHeaderColor;
       }
 
@@ -171,7 +171,7 @@ const {
           $sectionContent.style.zIndex = "20";
         }
 
-        if (topDistance <= 30) {
+        if (topDistance <= 30 && $header) {
           $header.style.color = headerColor;
         }
 
