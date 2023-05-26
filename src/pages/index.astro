@@ -8,7 +8,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tesla">
   <div
     id="home-page-box"
-    class="h-screen snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-0 after:w-full after:border-b-[1px] after:border-[#000000]"
+    class="h-screen absolute snap-y snap-mandatory overflow-y-scroll "
   >
     <HomeHeroSection />
 		<Model3Section />
@@ -26,7 +26,7 @@ import Layout from "../layouts/Layout.astro";
 
   ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
     (el) => {
-      el.style.height = `${window.innerHeight-1}px`;
+      el.style.height = `${window.innerHeight}px`;
     }
   );
 </script>
