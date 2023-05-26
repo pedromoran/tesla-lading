@@ -71,3 +71,11 @@ import { isDevEnv } from "../../helpers/isDevEnv";
     </footer>
   </section>
 </main>
+
+<script>
+  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+    (el) => {
+      el.style.height = `${window.innerHeight}px`;
+    }
+  );
+</script>

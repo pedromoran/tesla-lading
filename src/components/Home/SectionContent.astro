@@ -19,12 +19,12 @@ const {
 <section
   data-section-name={`section-${homeSectionName}`}
   data-header-color={headerColor}
-  class="h-screen relative snap-center"
+  class="relative snap-center"
 >
   <LayoutHeader />
   {
     video && (
-      <div class="w-full h-screen z-10 relative">
+      <div class="w-full h-full z-10 relative">
         <video
           class="w-full h-full object-cover object-center"
           src={video.src}
@@ -38,7 +38,7 @@ const {
 
   {
     image && (
-      <div class="bg-white w-full h-screen z-10">
+      <div class="bg-white w-full h-full z-10">
         <picture>
           <source
             srcset={image.srcMobile}
@@ -80,14 +80,18 @@ const {
 
   const $sections = document.querySelectorAll(
     "[data-section-name]"
-  ) as NodeListOf<Element>;
+  ) as NodeListOf<HTMLElement>;
 
   const $sectionsContent = document.querySelectorAll(
     "[data-section-content]"
-  ) as NodeListOf<Element>;
+  ) as NodeListOf<HTMLElement>;
 
   const $homePage = document.querySelector("#home-page");
   const $header = document.querySelector("#leading-header") as HTMLElement;
+  
+  [...$sections].forEach(s => {
+    s.style.height = `${window.innerHeight}px`;
+  })
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
