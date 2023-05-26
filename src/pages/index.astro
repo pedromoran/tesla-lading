@@ -17,7 +17,12 @@ import Layout from '../layouts/Layout.astro';
 <script>
   ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
     (el) => {
-      el.style.height = `${window.outerHeight}px`;
+      el.style.height = `${window.innerHeight}px`;
+    }
+  );
+  ([...document.querySelectorAll(".mt-[-100vh]")] as HTMLElement[]).forEach(
+    (el) => {
+      el.style.height = `${window.innerHeight}px`;
     }
   );
 </script>
