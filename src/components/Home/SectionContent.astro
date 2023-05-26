@@ -16,7 +16,7 @@ const {
 
 <section
   data-section-content={`section-${homeSectionName}-content`}
-  class="h-0 sticky z-10 top-0 left-0 mt-[-100vh]"
+  class="h-screen sticky z-10 top-0 left-0 mt-[-100vh]"
 >
   <div
     class="h-full w-full pb-[50px] sm:pb-[80px] opacity-1 flex flex-col justify-between text-center"
@@ -86,18 +86,10 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
-  const scrollTop = window.pageYOffset || $homePageBox.scrollTop;
-
-  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
-    (el) => {
-      const currentHeight = Number(el.style.height.replace("px", ""))
-      el.style.height = `${currentHeight - scrollTop}px`;
-    }
-  )
+  console.log($sections[0].getBoundingClientRect());
 
   $sectionsContent.forEach((el) => {
-    const currentHeight = Number(el.style.height.replace("px", ""))
-    el.style.marginTop = `-${currentHeight - scrollTop}px`;
+    el.style.marginTop = `-${window.innerHeight}px`;
   });
 
   function getVisiblePercentage(element) {
