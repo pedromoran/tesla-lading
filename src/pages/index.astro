@@ -14,9 +14,12 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
+  const $homePageBox = document.querySelector("#home-page-box");
+  const scrollTop = window.pageYOffset || $homePageBox.scrollTop;
+
   ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
     (el) => {
-      el.style.height = `${window.innerHeight}px`;
+      el.style.height = `${window.innerHeight - scrollTop}px`;
     }
   );
 </script>
