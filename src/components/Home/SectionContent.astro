@@ -16,7 +16,7 @@ const {
 
 <section
   data-section-content={`section-${homeSectionName}-content`}
-  class="w-full sticky z-10 top-0 left-0 opacity-0 flex flex-col justify-between text-center  pt-[17.5vh]"
+  class="w-full sticky z-10 top-0 left-0 opacity-0 flex flex-col justify-between text-center pt-[17.5vh]"
 >
   <slot />
 </section>
@@ -82,17 +82,17 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
-  $sectionsContents.forEach((el) => {
-    el.style.height = `${$homePageBox.clientHeight}px`;
-    el.style.marginTop = `-${$homePageBox.clientHeight}px`;
-  });
-
-  window.addEventListener("resize", () => {
+  
+  const resizeSectionContent = () => {
+    const responsiveSpace = $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
     $sectionsContents.forEach((el) => {
-      el.style.height = `${$homePageBox.clientHeight}px`;
-      el.style.marginTop = `-${$homePageBox.clientHeight}px`;
+      el.style.height = `${$homePageBox.clientHeight - responsiveSpace}px`;
+      el.style.marginTop = `-${$homePageBox.clientHeight - responsiveSpace}px`;
     });
-  });
+  };
+
+  resizeSectionContent()
+  window.addEventListener("resize", resizeSectionContent);
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
