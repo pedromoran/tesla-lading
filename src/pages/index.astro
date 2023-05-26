@@ -2,10 +2,12 @@
 import AccessoriesSection from "../components/Home/AccessoriesSection.astro";
 import HomeHeroSection from "../components/Home/HomeHeroSection.astro";
 import Model3Section from "../components/Home/Model3Section.astro";
+import LayoutHeader from "../components/LayoutHeader.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Tesla">
+  <LayoutHeader color="white" />
   <div
     id="home-page-box"
     class="h-[calc(100vh-1px)] sm:snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
