@@ -8,34 +8,18 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tesla">
   <div
     id="home-page-box"
-    class="w-full h-screen bg-red-900 top-0 left-0 snap-y snap-mandatory overflow-y-scroll overflow-x-hidden"
+    class="h-screen snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
   >
-  <h1>gsioe</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione esse nostrum fuga voluptatum ducimus quos dicta laboriosam debitis vero! Laboriosam nemo tenetur autem delectus officia quia ut iusto cum exercitationem?</p>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione esse nostrum fuga voluptatum ducimus quos dicta laboriosam debitis vero! Laboriosam nemo tenetur autem delectus officia quia ut iusto cum exercitationem?</p>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione esse nostrum fuga voluptatum ducimus quos dicta laboriosam debitis vero! Laboriosam nemo tenetur autem delectus officia quia ut iusto cum exercitationem?</p>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <!-- <HomeHeroSection />
+    <HomeHeroSection />
 		<Model3Section />
-		<AccessoriesSection /> -->
+		<AccessoriesSection />
   </div>
 </Layout>
 
 <script>
-  // const scrollTop = window.pageYOffset || document.querySelector("#home-page-box").scrollTop;
-  // console.log((document.querySelector("#home-page-box") as HTMLElement).children[0]);
-  // console.log((document.querySelector("#home-page-box") as HTMLElement).clientHeight);
-  // console.log((document.querySelector("#home-page-box") as HTMLElement).offsetHeight);
-  // console.log((document.querySelector("#home-page-box") as HTMLElement).scrollHeight);
- 
-
-  // ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
-  //   (el) => {
-  //     el.style.height = `${window.innerHeight -1}px`;
-  //   }
-  // );
+  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+    (el) => {
+      el.style.height = `${window.innerHeight-1}px`;
+    }
+  );
 </script>
