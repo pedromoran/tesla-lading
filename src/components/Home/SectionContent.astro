@@ -14,12 +14,12 @@ const {
 } = Astro.props;
 ---
 
-<!-- <section
+<section
   data-section-content={`section-${homeSectionName}-content`}
-  class="w-full h-[calc(100vh+50px)] bg-red-900/70 z-10 top-0 left-0 flex flex-col justify-between text-center pt-[17.5vh]"
+  class="w-full h-screen sticky mt-[-100vh] opacity-0 z-10 top-0 left-0 flex flex-col justify-between pb-[60px] sm:pb-[80px] text-center pt-[17.5vh]"
 >
   <slot />
-</section> -->
+</section>
 
 {
   video && (
@@ -91,15 +91,15 @@ const {
   // });
   const resizeSectionContent = () => {
     const $lastSection = $sectionsContents.at(-1)
-    if($lastSection){
-      $lastSection.style.height = '100vh'
-    }
+    // if($lastSection){
+    //   $lastSection.style.height = '100vh'
+    // }
     // const responsiveSpace =
     //   $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
-    // $sectionsContents.forEach((el) => {
-    //   el.style.height = `${$homePageBox.clientHeight - responsiveSpace}px`;
-    //   el.style.marginTop = `-${$homePageBox.clientHeight - responsiveSpace}px`;
-    // });
+    $sectionsContents.forEach((el) => {
+      el.style.height = `${window.innerHeight}px`;
+      el.style.marginTop = `-${window.innerHeight}px`;
+    });
   };
 
   resizeSectionContent()
@@ -205,7 +205,7 @@ const {
     });
   }, options);
 
-  // $sections.forEach((section) => {
-  //   observer.observe(section);
-  // });
+  $sections.forEach((section) => {
+    observer.observe(section);
+  });
 </script>
