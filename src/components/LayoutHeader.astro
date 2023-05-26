@@ -8,16 +8,16 @@ interface Props {
 const { color } = Astro.props;
 ---
 
-<header id="lading-header" class="w-full flex items-center px-5 py-[12px] fixed z-50 text-transparent transition-colors duration-500 font-medium animate-fade animate-duration-500 animate-delay-[.25s]" style={{ color }}>
+<header id="lading-header" class="w-full flex items-center px-5 py-[12px] fixed z-50 text-transparent transition-colors duration-300 font-medium animate-fade animate-duration-500 animate-delay-[.25s]" style={{ color }}>
 
   <div class="flex-grow basis-0">
-    <a class="block w-[7.5rem] sm:ml-6" href="/">
+    <a class="block w-[7.5rem] sm:ml-6 transition-colors duration-[25ms]" href="/">
       <Logo />
     </a>
   </div>
 
   <nav class="hidden xl:block">
-    <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded">
+    <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded [&>li>a]:transition-colors [&>li>a]:duration-[25ms]">
       <li><a href="models">Model S</a></li>
       <li><a href="#">Model 3</a></li>
       <li><a href="#">Model X</a></li>
@@ -29,14 +29,14 @@ const { color } = Astro.props;
   </nav>
 
   <nav class="hidden xl:flex justify-end flex-grow basis-0">
-    <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded">
+    <ul class="flex [&>li>a]:inline-block [&>li>a]:px-[16px] [&>li>a]:py-[6px] [&>li>a]:rounded [&>li>a]:transition-colors [&>li>a]:duration-[25ms]">
       <li><a href="#">Shop</a></li>
       <li><a href="#">Account</a></li>
       <li><a href="#">Menu</a></li>
     </ul>
   </nav>
 
-  <button class="inline-block bg-black/[.06] backdrop-blur-lg xl:hidden px-[16px] py-[6px] rounded hover:bg-black/[.10] transition-colors duration-300">Menu</button>
+  <button class="inline-block bg-black/[.06] backdrop-blur-lg xl:hidden px-[16px] py-[6px] rounded hover:bg-black/[.10] transition-colors duration-[25ms]">Menu</button>
 
   <div id="menu-backdrop" class=`
     absolute -z-[1] bg-black/[.06] backdrop-blur-lg rounded
