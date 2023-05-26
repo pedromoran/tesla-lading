@@ -8,21 +8,17 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tesla">
   <div
     id="home-page-box"
-    class="h-[calc(100vh-1px)] snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
+    class="h-[calc(100vh-1px)] sm:snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
   >
-    <div class="w-full h-screen bg-green-900"></div>
-    <Model3Section />
-    <div class="w-full h-screen bg-red-900"></div>
-    <div class="w-full h-screen bg-blue-900"></div>
-    <!-- <HomeHeroSection />
+    <HomeHeroSection />
 		<Model3Section />
-		<AccessoriesSection /> -->
+		<AccessoriesSection />
   </div>
 </Layout>
 
 <script>
   const $eles = [...document.querySelectorAll(".h-screen")] as HTMLElement[]
-  
+
   $eles.forEach(
     (el, i) => {
       if((i+1) !== $eles.length) {
