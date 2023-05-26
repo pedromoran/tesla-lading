@@ -19,7 +19,7 @@ const {
 <section
   data-section-name={`section-${homeSectionName}`}
   data-header-color={headerColor}
-  class="relative snap-center"
+  class="h-screen relative snap-center"
 >
   <LayoutHeader />
   {
@@ -89,9 +89,9 @@ const {
   const $homePage = document.querySelector("#home-page");
   const $header = document.querySelector("#leading-header") as HTMLElement;
   
-  [...$sections].forEach(s => {
-    s.style.height = `${window.innerHeight}px`;
-  })
+  // [...$sections].forEach(s => {
+  //   s.style.height = `${window.innerHeight}px`;
+  // })
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
@@ -158,6 +158,7 @@ const {
         $section.attributes.getNamedItem("data-header-color").value;
 
       if (isIntersecting) {
+        ($section as HTMLElement).style.height = `${window.innerHeight}px`;
         //Default effects
         const visiblePercentage = Math.round(getVisiblePercentage($section));
         const topDistance = $section.getBoundingClientRect().top;
