@@ -14,19 +14,19 @@ const {
 } = Astro.props;
 ---
 
-<section
+<!-- <section
   data-section-content={`section-${homeSectionName}-content`}
   class="w-full h-[calc(100vh+50px)] bg-red-900/70 z-10 top-0 left-0 flex flex-col justify-between text-center pt-[17.5vh]"
 >
   <slot />
-</section>
+</section> -->
 
 {
   video && (
     <section
       data-section-name={`section-${homeSectionName}`}
       data-header-color={headerColor}
-      class="w-full h-screen snap-center"
+      class="w-full h-[calc(100vh-1px)] snap-center"
     >
       <video
         class="w-full h-full object-cover object-center"
@@ -44,7 +44,7 @@ const {
     <section
       data-section-name={`section-${homeSectionName}`}
       data-header-color={headerColor}
-      class="w-full h-screen snap-center"
+      class="w-full h-[calc(100vh-1px)] snap-center"
     >
       <picture>
         <source srcset={image.srcMobile} media="(max-width: 639px)" />
@@ -90,16 +90,20 @@ const {
   //   el.style.height = `${newHeight}px`;
   // });
   const resizeSectionContent = () => {
-    const responsiveSpace =
-      $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
-    $sectionsContents.forEach((el) => {
-      el.style.height = `${$homePageBox.clientHeight - responsiveSpace}px`;
-      el.style.marginTop = `-${$homePageBox.clientHeight - responsiveSpace}px`;
-    });
+    const $lastSection = $sectionsContents.at(-1)
+    if($lastSection){
+      $lastSection.style.height = '100vh'
+    }
+    // const responsiveSpace =
+    //   $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
+    // $sectionsContents.forEach((el) => {
+    //   el.style.height = `${$homePageBox.clientHeight - responsiveSpace}px`;
+    //   el.style.marginTop = `-${$homePageBox.clientHeight - responsiveSpace}px`;
+    // });
   };
 
-  // resizeSectionContent()
-  // window.addEventListener("resize", resizeSectionContent);
+  resizeSectionContent()
+  window.addEventListener("resize", resizeSectionContent);
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
