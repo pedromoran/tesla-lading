@@ -18,7 +18,7 @@ const {
   data-section-content={`section-${homeSectionName}-content`}
   class="w-full h-screen mt-[-100vh] sticky z-10 top-0 left-0 opacity-0 flex flex-col justify-between text-center pb-[50px] sm:pb-[80px]"
 >
-    <slot />
+  <slot />
 </section>
 
 {
@@ -81,6 +81,13 @@ const {
 
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
+
+  window.addEventListener("resize", () => {
+    $sectionsContents.forEach((el) => {
+      el.style.height = `-${window.innerHeight}px`;
+      el.style.marginTop = `-${window.innerHeight}px`;
+    });
+  });
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
@@ -152,7 +159,7 @@ const {
         const visiblePercentage = Math.round(getVisiblePercentage($section));
         const topDistance = $section.getBoundingClientRect().top;
 
-        if($sectionContent){
+        if ($sectionContent) {
           $sectionContent.style.opacity = `${calcScrollOpacity(
             visiblePercentage
           )}`;
