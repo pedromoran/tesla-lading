@@ -14,9 +14,8 @@ const {
 } = Astro.props;
 ---
 
-<section class="h-screen sticky z-10 top-0 left-0 mt-[-100vh]">
+<section data-section-content={`section-${homeSectionName}-content`} class="h-screen sticky z-10 top-0 left-0 mt-[-100vh]">
   <div
-    data-section-content={`section-${homeSectionName}-content`}
     class="h-full w-full pb-[50px] sm:pb-[80px] opacity-1 flex flex-col justify-between text-center"
   >
     <slot />
@@ -83,6 +82,12 @@ const {
 
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
+
+  $sectionsContent.forEach(
+    (el) => {
+      el.style.marginTop = `-${window.innerHeight}px`;
+    }
+  )
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
