@@ -16,7 +16,7 @@ const {
 
 <section
   data-section-content={`section-${homeSectionName}-content`}
-  class="w-full sticky z-10 top-0 left-0 opacity-0 flex flex-col justify-between text-center pt-[17.5vh]"
+  class="w-full bg-red-900/70 h-[calc(100vh-1px)] z-10 top-0 left-0 flex flex-col justify-between text-center pt-[17.5vh]"
 >
   <slot />
 </section>
@@ -91,8 +91,8 @@ const {
     });
   };
 
-  resizeSectionContent()
-  window.addEventListener("resize", resizeSectionContent);
+  // resizeSectionContent()
+  // window.addEventListener("resize", resizeSectionContent);
 
   function getVisiblePercentage(element) {
     const rect = element.getBoundingClientRect();
@@ -194,7 +194,7 @@ const {
     });
   }, options);
 
-  $sections.forEach((section) => {
-    observer.observe(section);
-  });
+  // $sections.forEach((section) => {
+  //   observer.observe(section);
+  // });
 </script>
