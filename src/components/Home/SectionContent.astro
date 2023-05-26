@@ -86,6 +86,15 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
+  const scrollTop = window.pageYOffset || $homePageBox.scrollTop;
+
+  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+    (el) => {
+      const currentHeight = Number(el.style.height.replace("px", ""))
+      el.style.height = `${currentHeight - scrollTop}px`;
+    }
+  )
+
   $sectionsContent.forEach((el) => {
     el.style.marginTop = `-${window.innerHeight}px`;
   });
