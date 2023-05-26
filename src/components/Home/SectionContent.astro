@@ -96,7 +96,8 @@ const {
   )
 
   $sectionsContent.forEach((el) => {
-    el.style.marginTop = `-${window.innerHeight}px`;
+    const currentHeight = Number(el.style.height.replace("px", ""))
+    el.style.marginTop = `-${currentHeight - scrollTop}px`;
   });
 
   function getVisiblePercentage(element) {
