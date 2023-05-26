@@ -16,7 +16,7 @@ const {
 
 <section
   data-section-content={`section-${homeSectionName}-content`}
-  class="w-full h-full bg-red-900/70 z-10 top-0 left-0 flex flex-col justify-between text-center pt-[17.5vh]"
+  class="w-full h-[calc(100vh+50px)] bg-red-900/70 z-10 top-0 left-0 flex flex-col justify-between text-center pt-[17.5vh]"
 >
   <slot />
 </section>
@@ -82,9 +82,16 @@ const {
   const $homePageBox = document.querySelector("#home-page-box");
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
-  
+  $sectionsContents.forEach((el) => {
+    const extraSpace =
+      el.getBoundingClientRect().height - $homePageBox.clientHeight;
+    const newHeight = el.getBoundingClientRect().height - extraSpace;
+
+    el.style.height = `${newHeight}px`;
+  });
   const resizeSectionContent = () => {
-    const responsiveSpace = $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
+    const responsiveSpace =
+      $homePageBox.getBoundingClientRect().width <= 600 ? 60 : 80;
     $sectionsContents.forEach((el) => {
       el.style.height = `${$homePageBox.clientHeight - responsiveSpace}px`;
       el.style.marginTop = `-${$homePageBox.clientHeight - responsiveSpace}px`;
@@ -131,7 +138,7 @@ const {
 
       if (topDistance <= 30 && $header) {
         $header.style.color = headerColor;
-      } else if($header) {
+      } else if ($header) {
         $header.style.color = prevHeaderColor;
       }
 
