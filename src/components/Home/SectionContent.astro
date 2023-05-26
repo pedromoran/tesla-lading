@@ -83,7 +83,7 @@ const {
   const $header = document.querySelector("#lading-header") as HTMLElement;
 
   $sectionsContents.forEach((el) => {
-    el.style.marginTop = `-${window.innerHeight}px`;
+    el.style.marginTop = `-${window.innerHeight -1}px`;
   });
 
   function getVisiblePercentage(element) {
