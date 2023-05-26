@@ -8,168 +8,18 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Tesla">
   <div
     id="home-page-box"
-    class="h-screen snap-y bg-[#780808db] snap-mandatory overflow-y-scroll font-bold text-2xl"
+    class="h-screen snap-y bg-[#780808db] snap-mandatory overflow-y-scroll"
   >
-  <h1>Sec 1</h1>
-  <p>1</p>
-  <p>2</p>
-  <p>3</p>
-  <p>4</p>
-  <p>5</p>
-  <p>6</p>
-  <p>7</p>
-  <p>8</p>
-  <p>9</p>
-  <p>10</p>
-  <p>11</p>
-  <p>12</p>
-  <p>13</p>
-  <p>14</p>
-  <p>15</p>
-  <p>16</p>
-  <p>17</p>
-  <p>18</p>
-  <p>19</p>
-  <p>20</p>
-  <p>21</p>
-  <p>22</p>
-  <p>23</p>
-  <p>24</p>
-  <p>25</p>
-  <p>26</p>
-  <p>27</p>
-  <p>28</p>
-  <p>29</p>
-  <p>30</p>
-  <p>1</p>
-  <p>2</p>
-  <p>3</p>
-  <p>4</p>
-  <p>5</p>
-  <p>6</p>
-  <p>7</p>
-  <p>8</p>
-  <p>9</p>
-  <p>10</p>
-  <p>11</p>
-  <p>12</p>
-  <p>13</p>
-  <p>14</p>
-  <p>15</p>
-  <p>16</p>
-  <p>17</p>
-  <p>18</p>
-  <p>19</p>
-  <p>20</p>
-    <!-- <section class="font-bold text-xl w-full bg-slate-600">
-      <h1>Sec 1</h1>
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
-      <p>9</p>
-      <p>10</p>
-      <p>11</p>
-      <p>12</p>
-      <p>13</p>
-      <p>14</p>
-      <p>15</p>
-      <p>16</p>
-      <p>17</p>
-      <p>18</p>
-      <p>19</p>
-      <p>20</p>
-      <p>21</p>
-      <p>22</p>
-      <p>23</p>
-      <p>24</p>
-      <p>25</p>
-      <p>26</p>
-      <p>27</p>
-      <p>28</p>
-      <p>29</p>
-      <p>30</p>
-    </section>
-    <section class="w-full bg-red-800">
-      <h2>Sec 2</h2>
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
-      <p>9</p>
-      <p>10</p>
-      <p>11</p>
-      <p>12</p>
-      <p>13</p>
-      <p>14</p>
-      <p>15</p>
-      <p>16</p>
-      <p>17</p>
-      <p>18</p>
-      <p>19</p>
-      <p>20</p>
-      <p>21</p>
-      <p>22</p>
-      <p>23</p>
-      <p>24</p>
-      <p>25</p>
-      <p>26</p>
-      <p>27</p>
-      <p>28</p>
-      <p>29</p>
-      <p>30</p>
-    </section>
-    <section class="w-full bg-lime-700">
-      <h2>Sec 3</h2>
-      <p>1</p>
-      <p>2</p>
-      <p>3</p>
-      <p>4</p>
-      <p>5</p>
-      <p>6</p>
-      <p>7</p>
-      <p>8</p>
-      <p>9</p>
-      <p>10</p>
-      <p>11</p>
-      <p>12</p>
-      <p>13</p>
-      <p>14</p>
-      <p>15</p>
-      <p>16</p>
-      <p>17</p>
-      <p>18</p>
-      <p>19</p>
-      <p>20</p>
-      <p>21</p>
-      <p>22</p>
-      <p>23</p>
-      <p>24</p>
-      <p>25</p>
-      <p>26</p>
-      <p>27</p>
-      <p>28</p>
-      <p>29</p>
-      <p>30</p>
-    </section> -->
-    <!-- <HomeHeroSection />
+    <HomeHeroSection />
 		<Model3Section />
-		<AccessoriesSection /> -->
+		<AccessoriesSection />
   </div>
 </Layout>
 
 <script>
   ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
     (el) => {
-      el.style.height = `${window.innerHeight}px`;
+      el.style.height = `${window.innerHeight-0.5}px`;
     }
   );
 </script>
