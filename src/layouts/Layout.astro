@@ -7,7 +7,7 @@ export interface Props {
   classes?: string;
 }
 
-const { title, classes } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ const { title, classes } = Astro.props;
     class={"overflow-hidden"}
     style={{ perspective: "1px" }}
   >
-    <!-- <LayoutHeader /> -->
+    <LayoutHeader />
     <slot />
   </body>
 </html>
