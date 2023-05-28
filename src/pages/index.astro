@@ -10,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
   <LayoutHeader color="white" />
   <div
     id="home-page-box"
-    class="scroll-smooth h-[calc(100vh-1px)] sm:snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
+    class="h-[calc(100vh-1px)] snap-y snap-mandatory overflow-y-scroll after:z-[99999] after:content-[''] after:absolute after:bottom-[-1px] after:w-full after:border-b-[2px] after:border-[#000000]"
   >
     <HomeHeroSection />
     <Model3Section />
@@ -35,29 +35,29 @@ import Layout from "../layouts/Layout.astro";
 
   window.addEventListener("resize", resizeBoxes);
 
-  $sliderBox.addEventListener("touchmove", (e: TouchEvent) => {
-    // !e.touches && e.preventDefault();
+  // $sliderBox.addEventListener("touchmove", (e: TouchEvent) => {
+  //   // !e.touches && e.preventDefault();
 
-    const mousePosition = e.touches[0].pageY - prevXRef.prevPageY;
-    console.log(mousePosition);
-    cursorPositionRef.push(mousePosition);
-    // $sliderBox!.scrollTop = prevXRef.prevScrollTop - mousePosition;
-  });
+  //   const mousePosition = e.touches[0].pageY - prevXRef.prevPageY;
+  //   console.log(mousePosition);
+  //   cursorPositionRef.push(mousePosition);
+  //   // $sliderBox!.scrollTop = prevXRef.prevScrollTop - mousePosition;
+  // });
 
-  $sliderBox.addEventListener("touchstart", (e) => {
-    dragActived = true;
+  // $sliderBox.addEventListener("touchstart", (e) => {
+  //   dragActived = true;
 
-    prevXRef = {
-      prevPageY: e.touches[0].pageY,
-      prevScrollTop: $sliderBox!.scrollTop,
-    };
-  });
+  //   prevXRef = {
+  //     prevPageY: e.touches[0].pageY,
+  //     prevScrollTop: $sliderBox!.scrollTop,
+  //   };
+  // });
 
-  $sliderBox.addEventListener("touchend", (e) => {
-    if (!dragActived) return;
-    autoCenterScroll();
-    dragActived = false;
-  });
+  // $sliderBox.addEventListener("touchend", (e) => {
+  //   if (!dragActived) return;
+  //   autoCenterScroll();
+  //   dragActived = false;
+  // });
 
   const getScrollingDirection = () => {
     let goNext = false;
