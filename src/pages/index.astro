@@ -1,12 +1,90 @@
 ---
-import AccessoriesSection from "../components/Home/AccessoriesSection.astro";
-import HomeHeroSection from "../components/Home/HomeHeroSection.astro";
-import Model3Section from "../components/Home/Model3Section.astro";
-import LayoutHeader from "../components/LayoutHeader.astro";
-import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Tesla">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Swiper demo</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <link rel="stylesheet" href="/swiper-bundle.min.css" />
+    <style>
+      html,
+      body {
+        position: relative;
+        height: 100%;
+      }
+
+      body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 5</div>
+        <div class="swiper-slide">Slide 6</div>
+        <div class="swiper-slide">Slide 7</div>
+        <div class="swiper-slide">Slide 8</div>
+        <div class="swiper-slide">Slide 9</div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script type="module">
+      import Swiper from "/swiper-bundle.esm.browser.min.js";
+
+      new Swiper(".mySwiper", {
+        direction: "vertical",
+        slidesPerView: 1,
+        mousewheel: true,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+
+    </script>
+  </body>
+</html>
+
+<!-- <Layout title="Tesla">
   <LayoutHeader color="white" />
   <div
     id="home-page-box"
@@ -16,9 +94,9 @@ import Layout from "../layouts/Layout.astro";
     <Model3Section />
     <AccessoriesSection />
   </div>
-</Layout>
+</Layout> -->
 
-<script>
+<!-- <script>
   const $sliderBox = document.querySelector("#home-page-box") as HTMLElement;
   const $eles = [...document.querySelectorAll(".h-screen")] as HTMLElement[];
   let cursorPositionRef = [0];
@@ -39,7 +117,6 @@ import Layout from "../layouts/Layout.astro";
     // !e.touches && e.preventDefault();
 
     const mousePosition = e.touches[0].pageY - prevXRef.prevPageY;
-    console.log(mousePosition);
     cursorPositionRef.push(mousePosition);
     // $sliderBox!.scrollTop = prevXRef.prevScrollTop - mousePosition;
   });
@@ -93,10 +170,11 @@ import Layout from "../layouts/Layout.astro";
 
     if (goNext) {
       //*: next * sliderHeight = new top width no visible
+      console.log(next * sliderHeight);
       $sliderBox!.scrollTop = next * sliderHeight;
     } else {
       //*: prev * sliderHeight = new top width no visible
       $sliderBox!.scrollTop = prev * sliderHeight;
     }
   };
-</script>
+</script> -->
