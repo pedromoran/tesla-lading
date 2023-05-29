@@ -53,20 +53,23 @@ const { color } = Astro.props;
   const listItems = document.querySelectorAll('#lading-header li');
   const menuBackdrop = document.querySelector('#menu-backdrop') as HTMLElement;
 
-  listItems.forEach((item, index) => {
-    const { left, top, width, height } = item.getBoundingClientRect();
-    item.addEventListener('mouseenter', () => {
+  const translateBackDrop = ({ target }) => {
+      const { left, top, width, height } = target.getBoundingClientRect();
       // menuBackdrop.style.visibility = 'visible';
       menuBackdrop.style.opacity = '1';
       menuBackdrop.style.setProperty('--left', `${left}px`);
       menuBackdrop.style.setProperty('--top', `${top}px`);
       menuBackdrop.style.setProperty('--width', `${width}px`);
       menuBackdrop.style.setProperty('--height', `${height}px`);
-    });
+  }
 
-    item.addEventListener('mouseleave', () => {
-      menuBackdrop.style.opacity = '0';
-      // menuBackdrop.style.visibility = 'hidden';
-    });
+  const hideBackDrop = () => {
+    menuBackdrop.style.opacity = '0';
+  }
+
+  listItems.forEach((item, index) => {
+    item.addEventListener('mouseenter', translateBackDrop);
+    item.addEventListener('mouseleave', hideBackDrop);
   });
+
 </script>
