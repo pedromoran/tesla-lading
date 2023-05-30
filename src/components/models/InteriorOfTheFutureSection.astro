@@ -1,0 +1,49 @@
+---
+import LayoutHeader from "../LayoutHeader.astro";
+import GridItem from "../common/GridItem.astro";
+import { isDevEnv } from "../../helpers/isDevEnv";
+---
+
+<section>
+  <header>
+    <div class="w-full pt-[80px] pb-[60px] sm:[0px] bg-black text-white flex-center relative before:content:[''] before:block before:w-full before:h-[225px] before:absolute before:z-10 before:bottom-full before:bg-gradient-to-t before:from-black before:to-transparent after:content:[''] after:block after:w-full after:h-[200px] after:absolute after:z-10 after:top-full after:bg-gradient-to-b after:from-black after:to-transparent">
+      <h2>Interior of the Future</h2>
+    </div>
+    <div class="h-[100vh]">
+      <picture>
+        <source
+          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Mobile-LHD.avif"}
+          media="(max-width: 639px)"
+        />
+        <source
+          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
+          media="(min-width: 640px)"
+        />
+        <source
+          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Mobile-LHD.avif"}
+          media="(min-width: 640px) and (orientation:portrait)"
+        />
+        <img
+          class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
+          src={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
+          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
+          alt="Home outfitted with Tesla Solar Roof"
+        />
+      </picture>
+    </div>
+  </header>
+  <section class="h-[100vh] bg-black pt-[140px]">
+    <!-- Slider -->
+    <article class="container max-w-[1344px] ">
+      <video
+        class="w-full h-full rounded-[4px]"
+        src={isDevEnv("models/") + `Model-S-Interior-Carousel-1-Cinematic-Display-Desktop-Global.webm`}
+        autoplay
+        muted
+        loop
+      />
+      <h3>Cinematic Experience</h3>
+      <p>A 17” touchscreen with left-right tilt offers 2200 x 1300 resolution, true colors and exceptional responsiveness for gaming, movies and more.</p>
+    </article>
+  </section>
+</section>

@@ -23,8 +23,8 @@ module.exports = {
     require("tailwindcss-animated"),
     function ({ addComponents }) {
       addComponents({
-        h1: { "@apply text-[36px] sm:text-[40px]": {} },
-        h2: { "@apply text-[24px] sm:text-[28px]": {} },
+        h1: { "@apply text-[36px] sm:text-[40px] font-medium": {} },
+        h2: { "@apply text-[24px] sm:text-[28px] font-medium": {} },
         h3: { "@apply text-[20px] sm:text-[24px] font-medium": {} },
         ".container": { "@apply w-[87%] mx-auto": {} },
         ".flex-center": { "@apply flex items-center justify-center": {} },

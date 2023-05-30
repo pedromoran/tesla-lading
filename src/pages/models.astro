@@ -1,11 +1,13 @@
 ---
+import InteriorOfTheFutureSection from "../components/models/InteriorOfTheFutureSection.astro";
 import ModelsHeroSection from "../components/models/ModelsHeroSection.astro";
+import { isDevEnv } from "../helpers/isDevEnv";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Models S | Tesla">
   <ModelsHeroSection />
-  <!-- <FreedomTravelSection /> -->
+  <InteriorOfTheFutureSection />
 </Layout>
 
 <script>

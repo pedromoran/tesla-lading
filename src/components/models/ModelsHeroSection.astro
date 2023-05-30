@@ -4,10 +4,9 @@ import GridItem from "../common/GridItem.astro";
 import { isDevEnv } from "../../helpers/isDevEnv";
 ---
 
-<main class="h-screen relative">
+<main class="w-full h-[100vh] relative">
   <LayoutHeader color="black" />
 
-  <div class="absolute w-full h-full z-10 bg-red-900">
     <picture>
       <source
         srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
@@ -28,13 +27,12 @@ import { isDevEnv } from "../../helpers/isDevEnv";
         alt="Home outfitted with Tesla Solar Roof"
       />
     </picture>
-  </div>
 
   <section
-    class="absolute z-20 h-full w-full pb-[50px] sm:pb-[80px] flex flex-col justify-between text-center"
+    class="absolute top-0 left-0 z-20 h-full w-full pb-[40px] sm:pb-[50px] flex flex-col justify-between text-center"
   >
     <header class="animate-delay-[.85s]">
-      <h1 class="mt-[17.5vh] font-medium">Model S</h1>
+      <h1 class="mt-[15.5vh]">Model S</h1>
       <p class="text-[17px] font-medium">Plain</p>
     </header>
     <footer

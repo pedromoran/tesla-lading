@@ -43,7 +43,7 @@ const { color } = Astro.props;
     absolute -z-[1] bg-black/[.06] backdrop-blur-lg rounded
     left-[var(--left)] top-[var(--top)]
     w-[var(--width)] h-[var(--height)] opacity-0
-    transition-all duration-500 ease-in-out
+    transition-[left,_opacity,_width] duration-500 ease-in-out
   `></div>
 
 
@@ -55,7 +55,6 @@ const { color } = Astro.props;
 
   const translateBackDrop = ({ target }) => {
       const { left, top, width, height } = target.getBoundingClientRect();
-      // menuBackdrop.style.visibility = 'visible';
       menuBackdrop.style.opacity = '1';
       menuBackdrop.style.setProperty('--left', `${left}px`);
       menuBackdrop.style.setProperty('--top', `${top}px`);
