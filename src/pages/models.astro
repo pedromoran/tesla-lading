@@ -11,9 +11,11 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <script>
-  ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
-    (el) => {
-      el.style.height = `${window.innerHeight}px`;
-    }
-  );
+  window.addEventListener("resize", () => {
+    ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+      (el) => {
+        el.style.height = `${window.innerHeight}px`;
+      }
+    );
+  });
 </script>

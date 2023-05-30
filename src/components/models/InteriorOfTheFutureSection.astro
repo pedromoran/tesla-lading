@@ -6,17 +6,20 @@ import { isDevEnv } from "../../helpers/isDevEnv";
 
 <section>
   <header>
-    <div class="w-full pt-[80px] pb-[60px] sm:[0px] bg-black text-white flex-center relative before:content:[''] before:block before:w-full before:h-[225px] before:absolute before:z-10 before:bottom-full before:bg-gradient-to-t before:from-black before:to-transparent after:content:[''] after:block after:w-full after:h-[200px] after:absolute after:z-10 after:top-full after:bg-gradient-to-b after:from-black after:to-transparent">
+    <div
+      class="w-full pt-[80px] pb-[60px] sm:[0px] bg-black text-white flex-center relative before:content:[''] before:block before:w-full before:h-[225px] before:absolute before:z-10 before:bottom-full before:bg-gradient-to-t before:from-black before:to-transparent after:content:[''] after:block after:w-full after:h-[200px] after:absolute after:z-10 after:top-full after:bg-gradient-to-b after:from-black after:to-transparent"
+    >
       <h2>Interior of the Future</h2>
     </div>
-    <div class="h-[100vh]">
+    <div class="h-screen">
       <picture>
         <source
           srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Mobile-LHD.avif"}
           media="(max-width: 639px)"
         />
         <source
-          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
+          srcset={isDevEnv("models/") +
+            "Model-S-Interior-Hero-Desktop-LHD.avif"}
           media="(min-width: 640px)"
         />
         <source
@@ -24,26 +27,83 @@ import { isDevEnv } from "../../helpers/isDevEnv";
           media="(min-width: 640px) and (orientation:portrait)"
         />
         <img
-          class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
+          class="h-screen w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
           src={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
-          srcset={isDevEnv("models/") + "Model-S-Interior-Hero-Desktop-LHD.avif"}
-          alt="Home outfitted with Tesla Solar Roof"
+          srcset={isDevEnv("models/") +
+            "Model-S-Interior-Hero-Desktop-LHD.avif"}
+          alt="Model S Interior Hero Desktop LHD"
         />
       </picture>
     </div>
+    <section
+      class="bg-black py-[140px] text-white space-y-[100px] sm:space-y-[180px]"
+    >
+      <!-- Slider -->
+      <div class="container-xs max-w-[1344px]">
+        <article>
+          <video
+            class="w-full h-full rounded"
+            src={isDevEnv("models/") +
+              `Model-S-Interior-Carousel-1-Cinematic-Display-Desktop-Global.webm`}
+            autoplay
+            muted
+            loop></video>
+          <div class="max-w-[660px] mx-auto mt-[80px]">
+            <h4>Cinematic Experience</h4>
+            <p>
+              A 17” touchscreen with left-right tilt offers 2200 x 1300
+              resolution, true colors and exceptional responsiveness for gaming,
+              movies and more.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="container-xs max-w-[1120px] space-y-[100px] sm:space-y-[10px] sm:[&>article]:grid sm:[&>article]:grid-cols-2 sm:[&>article]:gap-x-2 sm:[&>article>div]:place-self-center sm:[&>article>div]:px-[10%] [&>article>div>h4]:mt-[24px] mb-[14px] sm:[&>article>div>h4]:mt-[0px]">
+        <article>
+          <img
+            class="w-full rounded"
+            src={isDevEnv("models/") + "MS-Interior-Grid-A-Desktop.avif"}
+            alt="MS Interior Grid A Desktop"
+          />
+          <div>
+            <h4>Stay Connected</h4>
+            <p>
+              Instantly connect with multi-device Bluetooth, or fast charge
+              devices with wireless and 36-watt USB-C charging.
+            </p>
+          </div>
+        </article>
+        <article>
+          <video
+            class="w-full h-full rounded sm:col-start-2 sm:col-end-3"
+            src={isDevEnv("models/") + "MS-Interior-Grid-2-Audio-Desktop.webm"}
+            autoplay
+            muted
+            loop></video>
+          <div class="sm:col-start-1 sm:col-end-2 sm:row-start-1">
+            <h4>Stay Connected</h4>
+            <p>
+              Instantly connect with multi-device Bluetooth, or fast charge
+              devices with wireless and 36-watt USB-C charging.
+            </p>
+          </div>
+        </article>
+        <article>
+          <img
+            class="w-full rounded"
+            src={isDevEnv("models/") + "MS-Interior-Grid-D-Desktop.avif"}
+            alt="MS Interior Grid A Desktop"
+          />
+          <div>
+            <h4>Stay Connected</h4>
+            <p>
+              Instantly connect with multi-device Bluetooth, or fast charge
+              devices with wireless and 36-watt USB-C charging.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
   </header>
-  <section class="h-[100vh] bg-black pt-[140px]">
-    <!-- Slider -->
-    <article class="container max-w-[1344px] ">
-      <video
-        class="w-full h-full rounded-[4px]"
-        src={isDevEnv("models/") + `Model-S-Interior-Carousel-1-Cinematic-Display-Desktop-Global.webm`}
-        autoplay
-        muted
-        loop
-      />
-      <h3>Cinematic Experience</h3>
-      <p>A 17” touchscreen with left-right tilt offers 2200 x 1300 resolution, true colors and exceptional responsiveness for gaming, movies and more.</p>
-    </article>
-  </section>
 </section>
