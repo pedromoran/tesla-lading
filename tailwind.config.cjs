@@ -27,7 +27,7 @@ module.exports = {
         h2: { "@apply text-[24px] sm:text-[28px] font-medium": {} },
         h3: { "@apply text-[20px] sm:text-[24px] font-medium": {} },
         h4: { "@apply text-[14px] sm:text-[16px] font-bold": {} },
-        ".container-xs": { "@apply w-[95%] mx-auto max-w-[1120px]": {} },
+        ".container-xs": { "@apply w-[95%] mx-auto max-w-[1344px]": {} },
         ".container-sm": { "@apply w-[91%] mx-auto max-w-[1120px]": {} },
         ".container": { "@apply w-[87%] mx-auto max-w-[1120px]": {} },
         ".flex-center": { "@apply flex items-center justify-center": {} },
