@@ -1,4 +1,5 @@
 ---
+import BeyondLudicrousSection from "../components/models/BeyondLudicrousSection.astro";
 import InteriorOfTheFutureSection from "../components/models/InteriorOfTheFutureSection.astro";
 import ModelsHeroSection from "../components/models/ModelsHeroSection.astro";
 import { isDevEnv } from "../helpers/isDevEnv";
@@ -8,45 +9,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Models S | Tesla">
   <ModelsHeroSection />
   <InteriorOfTheFutureSection />
-  <div class="h-[75vh]">
-    <picture>
-      <source
-        srcset={isDevEnv("models/") +
-          "Model-S-Performance-Hero-Mobile-LHD.avif"}
-        media="(max-width: 639px)"
-      />
-      <source
-        srcset={isDevEnv("models/") +
-          "Model-S-Performance-Hero-Desktop-LHD.avif"}
-        media="(min-width: 640px)"
-      />
-      <source
-        srcset={isDevEnv("models/") +
-          "Model-S-Performance-Hero-Mobile-LHD.avif"}
-        media="(min-width: 640px) and (orientation:portrait)"
-      />
-      <img
-        class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
-        src={isDevEnv("models/") + "Model-S-Performance-Hero-Desktop-LHD.avif"}
-        srcset={isDevEnv("models/") +
-          "Model-S-Performance-Hero-Desktop-LHD.avif"}
-        alt="Model S Interior Hero Desktop LHD"
-      />
-    </picture>
-  </div>
-  <section class="container md:w-[80%] py-12 sm:py-16 space-y-5 md:grid md:grid-cols-[minmax(270px,_1fr),calc(68%-80px)] md:gap-x-[26px] md:gap-y-3 sm:items-center">
-    <div class="">
-      <p class="text-[17px] ">Plaid</p>
-      <h2 class="mt-[0px] leading-6 sm:leading-7">Beyond Ludicrous</h2>
-    </div>
-    <p class="text-[#393C41] col-start-2 col-end-3 row-span-2">
-      Model S Plaid has the quickest acceleration of any vehicle in production. Updated battery architecture for all Model S trims enables back-to-back track runs  without performance degradation. <a href="#avaya-chat-modal">Chat with a Tesla Advisor</a> to learn more about Model S or <a href="/drive?selectedModel=models">schedule a demo drive</a> today.
-    </p>
-    <div class="flex flex-wrap space-y-[14px] xl:space-y-0 xl:flex-nowrap xl:space-x-[20px] w-full">
-      <a class="min-w-[170px] w-[100%] btn-dark--outline" href="#">Order Now</a>
-      <a class="min-w-[170px] w-[100%] btn-gray" href="#">Compare Models</a>
-    </div>
-  </section>
+  <BeyondLudicrousSection />
   <section class="h-screen bg-[#F4F4F4]">
   </section>
 </Layout>
