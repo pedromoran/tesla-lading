@@ -1,0 +1,149 @@
+<button
+  id="button-open-dialog-menu"
+  class="inline-block bg-black/[.06] backdrop-blur-lg xl:hidden px-[16px] py-[6px] rounded hover:bg-black/[.10] transition-colors duration-[25ms]"
+  >Menu</button
+>
+<div
+  id="dialog-backdrop"
+  class="absolute top-0 left-0 z-999 w-0 h-0 bg-[rgb(0_0_0_/_30%)] opacity-0 transition-opacity duration-300"
+>
+</div>
+<dialog
+  id="dialog-menu"
+  aria-hidden="false"
+  class="w-[310px] h-screen pt-[20px] pb-[80px] space-y-[20px] overflow-y-scroll overflow-x-hidden top-0 right-[-330px] opacity-0 left-auto transition-all duration-500 ease-in-out"
+  open=""
+>
+  <button
+    aria-label="Close Modal"
+    id="button-close-dialog-menu"
+    class="w-[40px] h-[40px] p-[8px] ml-auto block rounded hover:bg-[rgba(0,0,0,.05)] duration-300"
+    type="button"
+    ><svg class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="M18.53 17.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.748.748 0 0 1-1.06 0 .75.75 0 0 1 0-1.06L10.94 12 5.47 6.53a.75.75 0 1 1 1.06-1.06L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47z"
+        fill="currentColor"></path></svg
+    ></button
+  >
+  <section class="px-[10px]">
+    <ol
+      class="space-y-[8px] [&>li>a]:block [&>li>a]:py-[5px] [&>li>a]:px-[11px] [&>li>a]:rounded [&>li>a]:w-full [&>li>a:hover]:bg-[rgba(0,0,0,.05)] [&>li>a]:text-[#393c41] [&>li>a]:duration-300"
+    >
+      <li>
+        <a title="Model S" href="/models" class="">Model S</a>
+      </li><li>
+        <a title="Model 3" href="/model3" class="">Model 3</a>
+      </li><li>
+        <a title="Model X" href="/modelx" class="">Model X</a>
+      </li><li>
+        <a title="Model Y" href="/modely" class="">Model Y</a>
+      </li><li>
+        <a title="Solar Roof" href="/solarroof" class="">Solar Roof</a>
+      </li><li>
+        <a title="Solar Panels" href="/solarpanels" class="">Solar Panels</a>
+      </li><li>
+        <a title="Powerwall" href="/powerwall" class="">Powerwall</a>
+      </li>
+      <li>
+        <a title="Existing Inventory" href="/inventory/new/m3" class=""
+          >Existing Inventory</a
+        >
+      </li>
+      <li>
+        <a title="Used Inventory" href="/inventory/used/m3" class=""
+          >Used Inventory</a
+        >
+      </li>
+      <li>
+        <a title="Trade-In" href="/tradein" class="">Trade-In</a>
+      </li>
+      <li>
+        <a title="Demo Drive" href="/drive" class="">Demo Drive</a>
+      </li>
+      <li>
+        <a title="Insurance" href="/insurance" class="">Insurance</a>
+      </li>
+      <li>
+        <a title="Fleet" href="/fleet" class="">Fleet</a>
+      </li>
+      <li>
+        <a title="Cybertruck" href="/cybertruck" class="">Cybertruck</a>
+      </li>
+      <li>
+        <a title="Roadster" href="/roadster" class="">Roadster</a>
+      </li>
+      <li>
+        <a title="Semi" href="/semi" class="">Semi</a>
+      </li>
+      <li>
+        <a title="Charging" href="/charging" class="">Charging</a>
+      </li>
+      <li>
+        <a title="Commercial Energy" href="/commercial" class=""
+          >Commercial Energy</a
+        >
+      </li>
+      <li>
+        <a title="Utilities" href="/utilities" class="">Utilities</a>
+      </li>
+      <li>
+        <a title="Careers" href="/careers" class="">Careers</a>
+      </li>
+      <li>
+        <a title="Find Us" href="/findus" class="">Find Us</a>
+      </li>
+      <li>
+        <a title="Events" href="/events" class="">Events</a>
+      </li>
+      <li>
+        <a title="Support" href="/support" class="">Support</a>
+      </li>
+      <li>
+        <a title="Investor Relations" href="https://ir.tesla.com" class=""
+          >Investor Relations</a
+        >
+      </li>
+    </ol>
+  </section>
+</dialog>
+
+<script>
+  const $buttonOpenDialogMenu = document.querySelector(
+    "#button-open-dialog-menu"
+  ) as HTMLElement;
+  const $buttonCloseDialogMenu = document.querySelector(
+    "#button-close-dialog-menu"
+  ) as HTMLElement;
+  const $dialogMenuBackdrop = document.querySelector(
+    "#dialog-backdrop"
+  ) as HTMLElement;
+  const $dialogMenu = document.querySelector("#dialog-menu") as HTMLElement;
+
+  const dialogMenuWidth = $dialogMenu.clientWidth;
+
+  const closeDialog = () => {
+    $dialogMenuBackdrop.style.opacity = `0`;
+    setTimeout(() => {
+      $dialogMenuBackdrop.style.width = `0px`;
+      $dialogMenuBackdrop.style.height = `0px`;
+    }, 500);
+    $dialogMenu.style.opacity = `0`;
+    $dialogMenu.style.right = `-${dialogMenuWidth+20}px`;
+  };
+
+  $buttonOpenDialogMenu.addEventListener("click", () => {
+    $dialogMenuBackdrop.style.width = `100%`;
+    $dialogMenuBackdrop.style.height = `100vh`;
+    $dialogMenuBackdrop.style.opacity = `1`;
+    $dialogMenu.style.opacity = `1`;
+    $dialogMenu.style.right = `0px`;
+  });
+
+  $dialogMenuBackdrop.addEventListener("click", () => {
+    closeDialog();
+  });
+
+  $buttonCloseDialogMenu.addEventListener("click", () => {
+    closeDialog();
+  });
+</script>

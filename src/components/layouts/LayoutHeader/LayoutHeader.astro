@@ -1,5 +1,6 @@
 ---
-import Logo from "./Logo.astro";
+import Logo from '../../Logo.astro';
+import MenuDrop from './MenuDrop.astro';
 
 interface Props {
   color?: string;
@@ -36,7 +37,7 @@ const { color } = Astro.props;
     </ul>
   </nav>
 
-  <button class="inline-block bg-black/[.06] backdrop-blur-lg xl:hidden px-[16px] py-[6px] rounded hover:bg-black/[.10] transition-colors duration-[25ms]">Menu</button>
+  <MenuDrop />
 
   <div id="menu-backdrop" class=`
     hidden sm:block
