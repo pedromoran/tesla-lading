@@ -11,13 +11,13 @@
 <dialog
   id="dialog-menu"
   aria-hidden="false"
-  class="w-[310px] h-screen pt-[20px] pb-[80px] space-y-[20px] overflow-y-scroll overflow-x-hidden top-0 right-[-330px] opacity-0 left-auto transition-all duration-500 ease-in-out"
+  class="w-[0px] h-screen pt-[20px] pb-[80px] space-y-[20px] overflow-y-scroll overflow-x-hidden top-0 opacity-0 left-auto shadow-[5px_0px_20px_rgb(0_0_0_/_73%)] transition-all duration-500 ease-in-out"
   open=""
 >
   <button
     aria-label="Close Modal"
     id="button-close-dialog-menu"
-    class="w-[40px] h-[40px] p-[8px] ml-auto block rounded hover:bg-[rgba(0,0,0,.05)] duration-300"
+    class="text-[#393c41] w-[40px] h-[40px] p-[8px] ml-auto block rounded hover:bg-[rgba(0,0,0,.05)] duration-300"
     type="button"
     ><svg class="" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
       ><path
@@ -27,7 +27,7 @@
   >
   <section class="px-[10px]">
     <ol
-      class="space-y-[8px] [&>li>a]:block [&>li>a]:py-[5px] [&>li>a]:px-[11px] [&>li>a]:rounded [&>li>a]:w-full [&>li>a:hover]:bg-[rgba(0,0,0,.05)] [&>li>a]:text-[#393c41] [&>li>a]:duration-300"
+      class="space-y-[8px] [&>li>a]:block [&>li>a]:py-[5.5px] [&>li>a]:px-[11.5px] [&>li>a]:rounded [&>li>a]:w-full [&>li>a:hover]:bg-[rgba(0,0,0,.05)] [&>li>a]:text-[#393c41] [&>li>a]:duration-300"
     >
       <li>
         <a title="Model S" href="/models" class="">Model S</a>
@@ -128,7 +128,7 @@
       $dialogMenuBackdrop.style.height = `0px`;
     }, 500);
     $dialogMenu.style.opacity = `0`;
-    $dialogMenu.style.right = `-${dialogMenuWidth+20}px`;
+    $dialogMenu.style.width = `0px`;
   };
 
   $buttonOpenDialogMenu.addEventListener("click", () => {
@@ -136,7 +136,7 @@
     $dialogMenuBackdrop.style.height = `100vh`;
     $dialogMenuBackdrop.style.opacity = `1`;
     $dialogMenu.style.opacity = `1`;
-    $dialogMenu.style.right = `0px`;
+    $dialogMenu.style.width = `310px`;
   });
 
   $dialogMenuBackdrop.addEventListener("click", () => {
