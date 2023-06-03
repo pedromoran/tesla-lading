@@ -7,7 +7,7 @@ import { isDevEnv } from "../../helpers/isDevEnv";
     <div
       class="w-full pt-[80px] pb-[60px] sm:[0px] bg-black text-white flex-center relative before:content:[''] before:block before:w-full before:h-[225px] before:absolute before:z-10 before:bottom-full before:bg-gradient-to-t before:from-black before:to-transparent after:content:[''] after:block after:w-full after:h-[200px] after:absolute after:z-10 after:top-full after:bg-gradient-to-b after:from-black after:to-transparent"
     >
-      <h2>Interior of the Future</h2>
+      <h2 class="ghost">Interior of the Future</h2>
     </div>
     <div class="h-screen">
       <picture>
@@ -105,3 +105,14 @@ import { isDevEnv } from "../../helpers/isDevEnv";
     </section>
   </header>
 </section>
+
+
+<script>
+  //* pause all videos when user goes to another page
+  window.addEventListener("beforeunload", function () {
+    const videos = document.querySelectorAll("video");
+    videos.forEach((video) => {
+      video.pause();
+    });
+  });
+</script>

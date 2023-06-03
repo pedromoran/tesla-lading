@@ -7,26 +7,26 @@ import LayoutHeader from "../layouts/LayoutHeader/LayoutHeader.astro";
 <main class="w-full h-screen relative">
   <LayoutHeader color="black" />
 
-    <picture>
-      <source
-        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
-        media="(max-width: 639px)"
-      />
-      <source
-        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
-        media="(min-width: 640px)"
-      />
-      <source
-        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
-        media="(min-width: 640px) and (orientation:portrait)"
-      />
-      <img
-        class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
-        src={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
-        srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
-        alt="Home outfitted with Tesla Solar Roof"
-      />
-    </picture>
+  <picture>
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
+      media="(max-width: 639px)"
+    />
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Main-Hero-Mobile-LHD.avif"}
+      media="(min-width: 640px) and (orientation:portrait)"
+    />
+    <img
+      class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
+      src={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Main-Hero-Desktop-LHD.avif"}
+      alt="Home outfitted with Tesla Solar Roof"
+    />
+  </picture>
 
   <section
     class="absolute top-0 left-0 z-20 h-full w-full pb-[40px] sm:pb-[50px] flex flex-col justify-between text-center"
@@ -38,7 +38,6 @@ import LayoutHeader from "../layouts/LayoutHeader/LayoutHeader.astro";
     <footer
       class="container [&>section>h3>span]:text-[20px] [&>section>p]:text-sm w-[328px] sm:w-[760px] text-white grid grid-cols-3 sm:grid-cols-4 mx-auto place-content-center gap-[24px_6px]"
     >
-      <!-- TODO: Refactor the rest -->
       <GridItem
         classes="animate-delay-[1s]"
         message="Range (EPA est.)"
@@ -46,20 +45,27 @@ import LayoutHeader from "../layouts/LayoutHeader/LayoutHeader.astro";
         titleSecondary="mi"
       />
 
-      <section class="animate-delay-[1.15s]">
-        <h3>1.99 <span>s</span></h3>
-        <p>0-60 mph*</p>
-      </section>
+      <GridItem
+        classes="animate-delay-[1.15s]"
+        message="0-60 mph*"
+        titlePrimary="1.99"
+        titleSecondary="s"
+      />
 
-      <section class="animate-delay-[1.30s]">
-        <h3>200 <span>mph</span></h3>
-        <p>Top Speed†</p>
-      </section>
+      <GridItem
+        classes="animate-delay-[1.30s]"
+        message="Top Speed†"
+        titlePrimary="200"
+        titleSecondary="mph"
+      />
 
-      <section class="hidden sm:block animate-delay-[1.45s]">
-        <h3>1,020 <span>hp</span></h3>
-        <p>Peak Power</p>
-      </section>
+      <GridItem
+        classes="hidden sm:block animate-delay-[1.45s]"
+        message="Peak Power"
+        titlePrimary="1,020"
+        titleSecondary="hp"
+      />
+
       <section
         class="w-full animate-delay-[1.60s] space-y-[14px] sm:space-y-0 col-span-full place-self-end sm:flex-center sm:space-x-[20px]"
       >
@@ -69,13 +75,3 @@ import LayoutHeader from "../layouts/LayoutHeader/LayoutHeader.astro";
     </footer>
   </section>
 </main>
-
-<script>
-  window.addEventListener("resize", () => {
-    ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
-      (el) => {
-        el.style.height = `${window.innerHeight}px`;
-      }
-    );
-  });
-</script>
