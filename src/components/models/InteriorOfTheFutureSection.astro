@@ -60,11 +60,11 @@ import { isDevEnv } from "../../helpers/isDevEnv";
       <div class="container-xs max-w-[1120px] space-y-[100px] sm:space-y-[10px] sm:[&>article]:grid sm:[&>article]:grid-cols-2 sm:[&>article]:gap-x-2 sm:[&>article>div]:place-self-center sm:[&>article>div]:px-[10%] [&>article>div>h4]:mb-[10px] [&>article>div>h4]:mt-[24px] mb-[14px] sm:[&>article>div>h4]:mt-[0px]">
         <article>
           <img
-            class="w-full rounded"
+            class="w-full rounded ghost"
             src={isDevEnv("models/") + "MS-Interior-Grid-A-Desktop.avif"}
             alt="MS Interior Grid A Desktop"
           />
-          <div>
+          <div class="ghost">
             <h4>Immersive Sound</h4>
             <p>
               A 22-speaker, 960-watt audio system with Active Road Noise Reduction offers immersive listening and studio-grade sound quality.
@@ -73,12 +73,12 @@ import { isDevEnv } from "../../helpers/isDevEnv";
         </article>
         <article>
           <video
-            class="w-full h-full rounded sm:col-start-2 sm:col-end-3"
+            class="w-full h-full rounded sm:col-start-2 sm:col-end-3 ghost"
             src={isDevEnv("models/") + "MS-Interior-Grid-2-Audio-Desktop.webm"}
             autoplay
             muted
             loop></video>
-          <div class="sm:col-start-1 sm:col-end-2 sm:row-start-1">
+          <div class="sm:col-start-1 sm:col-end-2 sm:row-start-1 ghost">
             <h4>Room for Everything</h4>
             <p>
               With front and rear trunks and fold-flat seats you can fit your bike without taking the wheel off—and your luggage too. Compare Models
@@ -87,11 +87,11 @@ import { isDevEnv } from "../../helpers/isDevEnv";
         </article>
         <article>
           <img
-            class="w-full rounded"
+            class="w-full rounded ghost"
             src={isDevEnv("models/") + "MS-Interior-Grid-D-Desktop.avif"}
             alt="MS Interior Grid A Desktop"
           />
-          <div>
+          <div class="ghost">
             <h4>Stay Connected</h4>
             <p>
               Instantly connect with multi-device Bluetooth, or fast charge
