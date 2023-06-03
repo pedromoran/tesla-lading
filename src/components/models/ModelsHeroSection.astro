@@ -69,3 +69,13 @@ import LayoutHeader from "../layouts/LayoutHeader/LayoutHeader.astro";
     </footer>
   </section>
 </main>
+
+<script>
+  window.addEventListener("resize", () => {
+    ([...document.querySelectorAll(".h-screen")] as HTMLElement[]).forEach(
+      (el) => {
+        el.style.height = `${window.innerHeight}px`;
+      }
+    );
+  });
+</script>
