@@ -1,42 +1,74 @@
 ---
 import { isDevEnv } from "../../helpers/isDevEnv";
+import GridItem from "../common/GridItem.astro";
 ---
 
-<div class="h-[75vh]">
+<div class="relative h-[75vh]">
   <picture>
     <source
-      srcset={isDevEnv("models/") +
-        "Model-S-Performance-Hero-Mobile-LHD.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Performance-Hero-Mobile-LHD.avif"}
       media="(max-width: 639px)"
     />
     <source
-      srcset={isDevEnv("models/") +
-        "Model-S-Performance-Hero-Desktop-LHD.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Performance-Hero-Desktop-LHD.avif"}
       media="(min-width: 640px)"
     />
     <source
-      srcset={isDevEnv("models/") +
-        "Model-S-Performance-Hero-Mobile-LHD.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Performance-Hero-Mobile-LHD.avif"}
       media="(min-width: 640px) and (orientation:portrait)"
     />
     <img
       class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
       src={isDevEnv("models/") + "Model-S-Performance-Hero-Desktop-LHD.avif"}
-      srcset={isDevEnv("models/") +
-        "Model-S-Performance-Hero-Desktop-LHD.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Performance-Hero-Desktop-LHD.avif"}
       alt="Model S Interior Hero Desktop LHD"
     />
   </picture>
+  <section
+    class="absolute left-1/2 -translate-x-1/2 bottom-10 z-10 container w-[328px] sm:w-[760px] text-white grid grid-cols-3 text-center gap-[24px]"
+    data-component-status="initialized"
+  >
+    <GridItem
+      classes="ghost animate-delay-[0.1s]"
+      message="Peak Power"
+      titlePrimary="1,020"
+      titleSecondary="hp"
+    />
+
+    <GridItem
+      classes="ghost animate-delay-[0.25s]"
+      message="@155 mph 1/4 mile"
+      titlePrimary="9.23"
+      titleSecondary="s"
+    />
+
+    <GridItem
+      classes="ghost animate-delay-[0.4s]"
+      message="0-60 mph*"
+      titlePrimary="1.99"
+      titleSecondary="s"
+    />
+  </section>
 </div>
-<section class="container md:w-[80%] py-12 sm:py-16 space-y-5 md:grid md:grid-cols-[minmax(270px,_1fr),calc(68%-80px)] md:gap-x-[26px] md:gap-y-3 sm:items-center">
+<section
+  class="container md:w-[80%] py-12 sm:py-16 space-y-5 md:grid md:grid-cols-[minmax(270px,_1fr),calc(68%-80px)] md:gap-x-[26px] md:gap-y-3 sm:items-center"
+>
   <div>
     <p class="text-[17px] ghost">Plaid</p>
     <h2 class="mt-[0px] leading-6 sm:leading-7 ghost">Beyond Ludicrous</h2>
   </div>
   <p class="text-[#393C41] col-start-2 col-end-3 row-span-2 ghost">
-    Model S Plaid has the quickest acceleration of any vehicle in production. Updated battery architecture for all Model S trims enables back-to-back track runs  without performance degradation. <a href="#avaya-chat-modal">Chat with a Tesla Advisor</a> to learn more about Model S or <a href="/drive?selectedModel=models">schedule a demo drive</a> today.
+    Model S Plaid has the quickest acceleration of any vehicle in production.
+    Updated battery architecture for all Model S trims enables back-to-back
+    track runs without performance degradation. <a href="#avaya-chat-modal"
+      >Chat with a Tesla Advisor</a
+    > to learn more about Model S or <a href="/drive?selectedModel=models"
+      >schedule a demo drive</a
+    > today.
   </p>
-  <div class="flex flex-wrap space-y-[14px] xl:space-y-0 xl:flex-nowrap xl:space-x-[20px] w-full ghost">
+  <div
+    class="flex flex-wrap space-y-[14px] xl:space-y-0 xl:flex-nowrap xl:space-x-[20px] w-full ghost"
+  >
     <a class="min-w-[170px] w-[100%] btn-dark--outline" href="#">Order Now</a>
     <a class="min-w-[170px] w-[100%] btn-gray" href="#">Compare Models</a>
   </div>

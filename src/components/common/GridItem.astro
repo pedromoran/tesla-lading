@@ -6,13 +6,13 @@ interface Props {
   message: string;
 }
 
-const { classes = "", message, titlePrimary, titleSecondary } = Astro.props;
+const { classes, message, titlePrimary, titleSecondary } = Astro.props;
 ---
 
 <section class={classes}>
   <h3 class="mb-[5px]">
     {titlePrimary}
-    {titleSecondary && <span class="text-[20px]">{titleSecondary}</span>}
+    {titleSecondary && <span class="text-[17px] sm:text-[20px] ml-[-5px]">{titleSecondary}</span>}
   </h3>
-  <p class="text-sm">{message}</p>
+  <p class="text-xs sm:text-sm">{message}</p>
 </section>
