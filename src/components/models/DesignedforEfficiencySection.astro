@@ -1,5 +1,102 @@
 ---
+import { isDevEnv } from "../../helpers/isDevEnv";
 ---
 
-<section class="h-screen bg-black">
+<div class="relative h-[75vh]">
+  <picture>
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Exterior-Hero-Mobile-Global.avif"}
+      media="(max-width: 639px)"
+    />
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Exterior-Hero-Desktop-Global.avif"}
+      media="(min-width: 640px)"
+    />
+    <source
+      srcset={isDevEnv("models/") + "Model-S-Exterior-Hero-Mobile-Global.avif"}
+      media="(min-width: 640px) and (orientation:portrait)"
+    />
+    <img
+      class="h-full w-full object-top xs:object-[0px_35%] sm:object-center object-cover"
+      src={isDevEnv("models/") + "Model-S-Exterior-Hero-Desktop-Global.avif"}
+      srcset={isDevEnv("models/") + "Model-S-Exterior-Hero-Desktop-Global.avif"}
+      alt="Model S Interior Hero Desktop LHD"
+    />
+  </picture>
+</div>
+<section class="bg-black text-white">
+  <div
+    class="space-y-[30px] sm:space-y-[50px] py-12 sm:py-16"
+  >
+    <section
+      class="container space-y-5 md:grid md:grid-cols-[minmax(347px,_38%),_1fr] md:gap-x-[30px] md:gap-y-3 sm:items-center"
+    >
+      <div>
+        <p class="text-[17px] ghost">Exterior</p>
+        <h2 class="mt-[0px] leading-6 sm:leading-7 ghost">
+          Designed for Efficiency
+        </h2>
+      </div>
+      <p class="col-start-2 col-end-3 row-span-2 ghost">
+        With a drag coefficient of just .208 Cd, the lowest on the planet, Model
+        S is built for speed, endurance and range. Improved aerodynamics and a
+        wider chassis offer more responsive performance so you can take corners
+        quicker and with more confidence.
+      </p>
+      <div
+        class="flex flex-wrap space-y-[14px] xl:space-y-0 xl:flex-nowrap xl:space-x-[20px] w-full ghost"
+      >
+        <a class="min-w-[170px] w-[100%] btn-light--outline" href="#"
+          >Order Now</a
+        >
+        <a class="min-w-[170px] w-[100%] btn-gray--dark" href="#">View Inventory</a>
+      </div>
+    </section>
+
+    <div
+      class="container-xs pt-[80px] space-y-[100px] sm:space-y-[10px] sm:[&>article]:grid sm:[&>article]:grid-cols-2 sm:[&>article]:gap-x-2 sm:[&>article>div]:place-self-center sm:[&>article>div]:px-[10%] [&>article>div>h4]:mb-[10px] [&>article>div>h4]:mt-[24px] mb-[14px] sm:[&>article>div>h4]:mt-[0px]"
+    >
+      <article>
+        <img
+          class="w-full rounded sm:col-start-2 sm:col-end-3 ghost"
+          src={isDevEnv("models/") +
+            "Model-S-Exterior-Grid-A-Desktop-Global.avif"}
+          alt="MS Interior Grid A Desktop"
+        />
+        <div class="sm:col-start-1 sm:col-end-2 sm:row-start-1 ghost">
+          <h4>Relentless Performance</h4>
+          <p>
+            Staggered, performance wheels and tires keep the car planted and
+            help transfer maximum power down to the road.
+          </p>
+        </div>
+      </article>
+      <article>
+        <img
+          class="w-full rounded ghost"
+          src={isDevEnv("models/") +
+            "Model-S-Exterior-Grid-B-Desktop-Global.avif"}
+          alt="MS Interior Grid A Desktop"
+        />
+        <div class="ghost">
+          <h4>Room for Everything</h4>
+          <p>
+            Attention to detail on all exterior surfaces makes Model S the most
+            aerodynamic production car on Earth.
+          </p>
+        </div>
+      </article>
+      <article>
+        <img
+          class="w-full rounded sm:col-start-2 sm:col-end-3 ghost"
+          src={isDevEnv("models/") + "Model-S-Exterior-Grid-C-Desktop-Global.avif"}
+          alt="MS Interior Grid A Desktop"
+        />
+        <div class="sm:col-start-1 sm:col-end-2 sm:row-start-1 ghost">
+          <h4>Refined Styling</h4>
+          <p>An iconic silhouette meets refreshed, elegant proportions.</p>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
