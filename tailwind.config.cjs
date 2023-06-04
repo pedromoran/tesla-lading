@@ -29,7 +29,7 @@ module.exports = {
         h4: { "@apply text-[14px] sm:text-[16px] font-bold": {} },
         ".container-xs": { "@apply w-[95%] mx-auto max-w-[1344px]": {} },
         ".container-sm": { "@apply w-[91%] mx-auto max-w-[1120px]": {} },
-        ".container": { "@apply w-[87%] mx-auto max-w-[1120px]": {} },
+        ".container": { "@apply w-[87%] md:w-[80%] mx-auto max-w-[1120px]": {} },
         ".flex-center": { "@apply flex items-center justify-center": {} },
         '[class*="animate-delay"]': { "@apply animate-fade-up animate-duration-500": {} },
         body: { "@apply text-base": {} },

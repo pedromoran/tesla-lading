@@ -3,8 +3,8 @@ import { isDevEnv } from "../../helpers/isDevEnv";
 import GridItem from "../common/GridItem.astro";
 ---
 
-<section class="bg-[#F4F4F4] pb-[100px]">
-  <div class="container md:w-[80%] py-12 sm:py-16 space-y-5">
+<section class="bg-[#F4F4F4] pb-[100px] space-y-[30px] sm:space-y-[50px] py-[90px] sm:py-[130px]">
+  <header class="container space-y-5">
     <h2 class="mt-[0px] leading-6 sm:leading-7 ghost">Electric Powertrain</h2>
     <p class="text-[#393C41] max-w-[790px] ghost">
       Model S platforms unite powertrain and battery technologies for unrivaled
@@ -12,9 +12,9 @@ import GridItem from "../common/GridItem.astro";
       architecture allows faster charging and gives you more power and endurance
       in all conditions.
     </p>
-  </div>
+  </header>
 
-  <div class="relative container-xs sm:aspect-video">
+  <div class="relative container-xs sm:aspect-video pt-[30px]">
     <picture>
       <source
         srcset={isDevEnv("models/") +
@@ -41,4 +41,42 @@ import GridItem from "../common/GridItem.astro";
       />
     </picture>
   </div>
+  <footer class="relative container">
+    <button
+      class="relative w-full sm:w-1/2 mx-auto flex flex-col space-y-[20px]"
+      role="tab"
+      tabindex="1"
+      aria-selected="true"
+    >
+      <div class="ghost absolute w-full h-[4px] bg-black top-[-16px]"></div>
+      <h3 class="ghost text-[17px]">Model S</h3>
+      <p class="ghost text-left text-[#393C41]">
+        Dual Motor All-Wheel Drive unlocks more range than any other vehicle in
+        our current lineup, with insane power and maximum control.
+      </p>
+      <div class="flex [&>section]:mr-[30px]">
+        <GridItem
+          classes="ghost animate-delay-[0.1s]"
+          message="0-60 mph"
+          titlePrimary="3.1"
+          titleSecondary="s"
+        />
+
+        <GridItem
+          classes="ghost animate-delay-[0.2s]"
+          message="Range (EPA est.)"
+          titlePrimary="405"
+          titleSecondary="mi"
+        />
+
+        <GridItem
+          classes="ghost animate-delay-[0.3s]"
+          message="Peak Power"
+          titlePrimary="670"
+          titleSecondary="hp"
+        />
+      </div>
+    </button>
+    <p class="ghost absolute w-full text-center bottom-[-80px] text-sm text-[#393C41] animate-delay-[0.45s]">* With rollout subtracted</p>
+  </footer>
 </section>
