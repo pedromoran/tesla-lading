@@ -1,0 +1,76 @@
+---
+import { isDevEnv } from "../../helpers/isDevEnv";
+import GridItem from "../common/GridItem.astro";
+---
+
+<section class="h-screen flex flex-col xl:flex-row">
+  <div class="relative w-full h-full">
+    <video
+      class="w-full h-full object-cover"
+      src={isDevEnv("models/") + `MS-Range-Hero-Mobile.webm`}
+      autoplay
+      muted
+      loop
+    >
+    </video>
+
+    <section
+      class="absolute left-1/2 -translate-x-1/2 bottom-12 z-10 container w-[328px] sm:w-[760px] text-white grid grid-cols-3 text-center gap-[24px]"
+      data-component-status="initialized"
+    >
+    <!-- xl: Range (EPA est.) -->
+    <!-- xl: Recharge up to 200 mi -->
+    <!-- xl: Global Superchargers -->
+      <GridItem
+        classes="ghost animate-delay-[0.1s]"
+        message="Go anywhere with up to 405 miles of estimated range on a single charge"
+        titlePrimary="405"
+        titleSecondary="mi"
+      />
+
+      <GridItem
+        classes="ghost animate-delay-[0.25s]"
+        message="Recharge up to 200 miles in 15 minutes at Supercharger locations"
+        titlePrimary="15"
+        titleSecondary="min"
+      />
+
+      <GridItem
+        classes="ghost animate-delay-[0.4s]"
+        message="Superchargers placed along popular routes"
+        titlePrimary="45,000"
+        titleSecondary="+"
+      />
+    </section>
+  </div>
+
+  <section
+    class="container py-12 sm:py-16 space-y-5 md:grid md:grid-cols-[minmax(270px,_38%),_1fr] md:gap-x-[30px] md:gap-y-3 sm:items-center xl:items-start xl:flex xl:h-full xl:max-w-[400px] xl:p-[40px] xl:flex-col"
+  >
+    <div>
+      <p class="text-[17px] ghost">Range</p>
+      <h2 class="mt-[0px] leading-6 sm:leading-7 ghost">Go Anywhere</h2>
+    </div>
+    <p class="text-[#393C41] col-start-2 col-end-3 row-span-2 ghost">
+      With up to 405 miles of estimated range and access to the world’s largest
+      and most powerful fast charging network, you’ll spend less time plugged in
+      and more time on the road. <a
+        href="#avaya-chat-modal"
+        data-tesla_locale_processed="1"
+        class="tds-link">Chat with a Tesla Advisor</a
+      > to learn more about Model S or <a
+        href="/drive?selectedModel=models"
+        data-tesla_locale_processed="1"
+        class="tds-link">schedule a demo drive</a
+      > today.
+    </p>
+    <div
+      class="flex flex-wrap space-y-[14px] xl:flex-nowrap w-full xl:flex-col xl:justify-end xl:flex-1 ghost"
+    >
+      <a class="min-w-[170px] w-[100%] btn-dark--outline" href="#">Order Now</a>
+      <a class="min-w-[170px] w-[100%] btn-gray--light" href="#"
+        >Compare Models</a
+      >
+    </div>
+  </section>
+</section>
